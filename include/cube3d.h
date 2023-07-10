@@ -6,15 +6,18 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 10:58:25 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/07/07 11:48:32 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/07/10 13:43:27 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUBE3D_H
 # define CUBE3D_H
 
+# include "../../libft/libft.h"
 # include <mlx.h>
 # include <stdio.h>
+# include <fcntl.h>
+# include <stdlib.h>
 
 typedef struct s_data
 {
@@ -30,6 +33,23 @@ typedef struct s_vars
 	void	*mlx;
 	void	*win;
 }				t_vars;
+
+typedef struct s_map
+{
+	int		x;
+	int		y;
+	int		floor;
+	int		ceiling;
+	char	**map;
+}				t_map;
+
+typedef struct s_texture
+{
+	char	*no;
+	char	*so;
+	char	*we;
+	char	*ea;
+}				t_texture;
 
 
 #endif

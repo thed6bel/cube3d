@@ -6,7 +6,7 @@
 #    By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/13 09:27:30 by hucorrei          #+#    #+#              #
-#    Updated: 2023/07/07 14:30:10 by hucorrei         ###   ########.fr        #
+#    Updated: 2023/07/07 14:39:34 by hucorrei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,12 +54,15 @@ ${NAME}:	${OBJS}
 all:	${NAME}
 
 clean:
+			@${MAKE} -C ./libft clean
+			@${MAKE} -C ./mlx clean
 			@${RM} -r $(OBJ_DIR)
 			@ echo "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)objs ✔️"
 
 fclean:		clean
 			@ ${RM} ${NAME}
-			@ ${RM} libmlx.a
+			@${RM} libmlx.a
+			@${RM} ./libft/libft.a
 			@ echo "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)binary ✔️"
 
 re:			fclean all
