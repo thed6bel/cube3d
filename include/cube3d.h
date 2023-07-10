@@ -6,7 +6,7 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 10:58:25 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/07/10 13:43:27 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/07/10 14:55:44 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,7 @@ typedef struct s_texture
 	char	*ea;
 }				t_texture;
 
+void	ft_ctrl_argc(int argc, char **argv);
+void	ft_error(char *message);
 
 #endif

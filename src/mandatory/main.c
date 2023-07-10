@@ -6,7 +6,7 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 10:57:59 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/07/10 14:31:49 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/07/10 15:05:04 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,5 @@ int		main(int argc, char **argv)
 	t_data	*data;
 	
 	ft_ctrl_argc(argc, argv);
+	
 }

@@ -6,7 +6,7 @@
 #    By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/13 09:27:30 by hucorrei          #+#    #+#              #
-#    Updated: 2023/07/07 14:39:34 by hucorrei         ###   ########.fr        #
+#    Updated: 2023/07/10 14:56:06 by hucorrei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,9 @@ MLX		= -lmlx -framework OpenGL -framework AppKit
 #                                 PROGRAM'S SRCS                               #
 ################################################################################
 
-SRCS	= 	./src/mandatory/main.c
+SRCS	= 	./src/mandatory/main.c \
+			./src/mandatory/ft_map_check.c \
+			./src/mandatory/ft_tools.c \
 
 OBJS	= $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 
