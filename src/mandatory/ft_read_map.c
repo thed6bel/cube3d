@@ -6,21 +6,13 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 13:36:23 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/07/10 14:16:13 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/07/10 14:34:05 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cube3d.h"
 
-static void	ft_valide_ext(char *map)
-{
-	int	end;
 
-	end = (ft_strlen(&map[0]) - 1);
-	if (map[end] != 'b' || map[end - 1] != 'u'
-		|| map[end - 2] != 'c' || map[end - 3] != '.')
-		ft_error("Error\nExtension map error, only .cub maps");
-}
 
 void ft_full_ctrl(char *argv)
 {
