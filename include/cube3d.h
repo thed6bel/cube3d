@@ -6,7 +6,7 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 10:58:25 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/07/10 14:55:44 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/07/14 10:55:17 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,12 @@ typedef struct s_vars
 
 typedef struct s_map
 {
-	int		x;
-	int		y;
+	char	**map;
+	int		x_init;
+	int		y_init;
+	char	position_init;
 	int		floor;
 	int		ceiling;
-	char	**map;
 }				t_map;
 
 typedef struct s_texture

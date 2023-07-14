@@ -6,7 +6,7 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 10:57:59 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/07/10 15:05:04 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/07/14 10:59:05 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,8 @@ int		main(int argc, char **argv)
 	t_data	*data;
 	
 	ft_ctrl_argc(argc, argv);
-	
+	printf("ok test passed\n");
+    //ctrl les xpm et les init dans la structure
+    //ctrl des couleurs du sol/plafond et les init dans la structure
+    //ctrl de la map et la taper dans la structure
 }
