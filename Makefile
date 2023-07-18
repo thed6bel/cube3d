@@ -6,7 +6,7 @@
 #    By: thed6bel <thed6bel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/13 09:27:30 by hucorrei          #+#    #+#              #
-#    Updated: 2023/07/18 09:59:25 by thed6bel         ###   ########.fr        #
+#    Updated: 2023/07/18 10:06:30 by thed6bel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,21 @@ CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror
 OBJ_DIR	= .objs
 #MLX		= -lmlx -framework OpenGL -framework AppKit
-MLX	= -Lmlx -lmlx -L/usr/lib -Imlx -lXext -lX11 -lm -lz
+MLX	= -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
+
+################################################################################
+#                                  OS detection                                #
+################################################################################
+
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Linux)
+	MLX		= -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
+	MLX_DIR	= ./mlx_linux
+endif
+ifeq ($(UNAME_S),Darwin)
+	MLX		= -lmlx -framework OpenGL -framework AppKit
+	MLX_DIR	= ./mlx_mac
+endif
 
 ################################################################################
 #                                 PROGRAM'S SRCS                               #
@@ -49,8 +63,8 @@ RM			= rm -rf
 ${NAME}:	${OBJS}
 		@echo "$(GREEN)Compilation ${CLR_RMV}of ${YELLOW}$(NAME) ${CLR_RMV}..."
 		@${MAKE} -C ./libft
-		@ $(MAKE) -C ./mlx all >/dev/null 2>&1
-		@ cp ./mlx/libmlx.a .
+		@ $(MAKE) -C ${MLX_DIR} all >/dev/null 2>&1
+		@ cp ${MLX_DIR}/libmlx.a .
 		@${CC} ${CFLAGS} ${OBJS} ${MLX} ./libft/libft.a -o ${NAME}
 		@echo "$(GREEN)$(NAME) created[0m ✔️"
 
@@ -58,7 +72,7 @@ all:	${NAME}
 
 clean:
 			@${MAKE} -C ./libft clean
-			@${MAKE} -C ./mlx clean
+			@${MAKE} -C ${MLX_DIR} clean
 			@${RM} -r $(OBJ_DIR)
 			@ echo "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)objs ✔️"
 
