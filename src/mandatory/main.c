@@ -6,13 +6,13 @@
 /*   By: thed6bel <thed6bel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 10:57:59 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/07/18 09:41:17 by thed6bel         ###   ########.fr       */
+/*   Updated: 2023/07/18 16:20:34 by thed6bel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cube3d.h"
 
-void my_mlx_pixel_put(t_data *data, int x, int y, int color)
+void my_mlx_pixel_put(t_mlx *data, int x, int y, int color)
 {
 	char *dst;
 
@@ -20,7 +20,7 @@ void my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	*(unsigned int*)dst = color;
 }
 
-void ft_floor_cloud_color(t_data *data)
+void ft_floor_cloud_color(t_mlx *data)
 {
     int half_height = 480 / 2;
 
@@ -43,33 +43,26 @@ void ft_floor_cloud_color(t_data *data)
 
 int		main(int argc, char **argv)
 {
-	t_vars	vars;
-	t_data	img;
-
-	if (argc == 2)
-	{
+	t_mlx	vars;
+    t_file	file;
+    
+	if (argv[2])
+		ft_error("Error, too many arguments");
+    if (!ft_start_parse(&file, argv[1]))
+    {
 		vars.mlx = mlx_init();
 		vars.win = mlx_new_window(vars.mlx, 640, 480, "Hello world!");
-		img.img = mlx_new_image(vars.mlx, 640, 480);
-		img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
-		ft_floor_cloud_color(&img);
-		mlx_put_image_to_window(vars.mlx, vars.win, img.img, 0, 0);
+		vars.img = mlx_new_image(vars.mlx, 640, 480);
+		vars.addr = mlx_get_data_addr(vars.img, &vars.bits_per_pixel, &vars.line_length, &vars.endian);
+		ft_floor_cloud_color(&vars);
+		mlx_put_image_to_window(vars.mlx, vars.win, vars.img, 0, 0);
 		mlx_loop(vars.mlx);
+		// ft_start_3d(&cub);
+		// exit(0);
 	}
 	else
 	{
-		printf("Error\n");
+		printf("Error exit112\n");
 	}
 	return (0);
 }
-
-// int		main(int argc, char **argv)
-// {
-// 	t_data	*data;
-	
-// 	ft_ctrl_argc(argc, argv);
-// 	printf("ok test passed\n");
-//     //ctrl les xpm et les init dans la structure
-//     //ctrl des couleurs du sol/plafond et les init dans la structure
-//     //ctrl de la map et la taper dans la structure
-// }

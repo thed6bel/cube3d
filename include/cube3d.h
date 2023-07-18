@@ -6,7 +6,7 @@
 /*   By: thed6bel <thed6bel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 10:58:25 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/07/18 09:11:54 by thed6bel         ###   ########.fr       */
+/*   Updated: 2023/07/18 16:52:39 by thed6bel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,41 +18,61 @@
 # include <stdio.h>
 # include <fcntl.h>
 # include <stdlib.h>
+# include <errno.h>
+# include <string.h>
 
-typedef struct s_data
+typedef struct s_mlx
 {
+	void	*mlx;
+	void	*win;
 	void	*img;
 	char	*addr;
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
-}				t_data;
+}				t_mlx;
 
-typedef struct s_vars
+typedef struct s_rgb
 {
-	void	*mlx;
-	void	*win;
-}				t_vars;
+	int	red;
+	int	green;
+	int	blue;
+	int	t;
+}	t_rgb;
 
-typedef struct s_map
+typedef struct s_file
 {
-	char	**map;
-	int		x_init;
-	int		y_init;
-	char	position_init;
-	int		floor;
-	int		ceiling;
-}				t_map;
-
-typedef struct s_texture
-{
+	int		fd;
+	char	*file_path;
 	char	*no;
 	char	*so;
 	char	*we;
 	char	*ea;
-}				t_texture;
+	t_rgb	floor;
+	t_rgb	ceilling;
+	char	**map;
+}				t_file;
 
 void	ft_ctrl_argc(int argc, char **argv);
+
+//ft_tools
 void	ft_error(char *message);
+char	*ft_trim(const char *str);
+int		ft_ncmp(const char *s1, const char *s2, size_t n);
+
+//ft_init
+int	ft_file_init(t_file *cub, char *file_path);
+
+//ft_rgb
+int	ft_check_file_colors(t_file *file);
+int	ft_get_file_colors(t_rgb *rgb, char *str);
+int	ft_color_line_export(char *str);
+
+//ft_parsing
+int	ft_start_parse(t_file *cub, char *file_path);
+int	ft_file_check(char *file_path, char *type);
+int	ft_file_load_tiles(t_file *file);
+int	ft_check_tile(char **tile, char *line, char *cardinal);
+
 
 #endif

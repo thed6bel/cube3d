@@ -1,15 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_read_map.c                                      :+:      :+:    :+:   */
+/*   ft_parsing.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thed6bel <thed6bel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/10 13:36:23 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/07/18 15:59:04 by thed6bel         ###   ########.fr       */
+/*   Created: 2023/07/18 11:14:37 by thed6bel          #+#    #+#             */
+/*   Updated: 2023/07/18 16:24:53 by thed6bel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/cube3d.h"
+#include "../../../include/cube3d.h"
 
-
+int	ft_start_parse(t_file *file, char *file_path)
+{
+	if (ft_file_init(file, file_path) || ft_file_load_tiles(file))
+		return (1);
+	// if (ft_check_file_colors(file))// || ft_file_map(file))
+	// 	return (1);
+	return (0);
+}
