@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   cube3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thed6bel <thed6bel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 10:58:25 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/07/14 10:55:17 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/07/18 09:11:54 by thed6bel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUBE3D_H
 # define CUBE3D_H
 
-# include "../../libft/libft.h"
+# include "../libft/libft.h"
 # include <mlx.h>
 # include <stdio.h>
 # include <fcntl.h>

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+         #
+#    By: thed6bel <thed6bel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/13 09:27:30 by hucorrei          #+#    #+#              #
-#    Updated: 2023/07/10 14:56:06 by hucorrei         ###   ########.fr        #
+#    Updated: 2023/07/18 09:59:25 by thed6bel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ NAME	= cub3D
 CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror
 OBJ_DIR	= .objs
-MLX		= -lmlx -framework OpenGL -framework AppKit
+#MLX		= -lmlx -framework OpenGL -framework AppKit
+MLX	= -Lmlx -lmlx -L/usr/lib -Imlx -lXext -lX11 -lm -lz
 
 ################################################################################
 #                                 PROGRAM'S SRCS                               #

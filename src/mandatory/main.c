@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thed6bel <thed6bel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 10:57:59 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/07/14 10:59:05 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/07/18 09:41:17 by thed6bel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,35 +41,35 @@ void ft_floor_cloud_color(t_data *data)
 }
 
 
-// int		main(int argc, char **argv)
-// {
-// 	t_vars	vars;
-// 	t_data	img;
-
-// 	if (argc == 2)
-// 	{
-// 		vars.mlx = mlx_init();
-// 		vars.win = mlx_new_window(vars.mlx, 640, 480, "Hello world!");
-// 		img.img = mlx_new_image(vars.mlx, 640, 480);
-// 		img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
-// 		ft_floor_cloud_color(&img);
-// 		mlx_put_image_to_window(vars.mlx, vars.win, img.img, 0, 0);
-// 		mlx_loop(vars.mlx);
-// 	}
-// 	else
-// 	{
-// 		printf("Error\n");
-// 	}
-// 	return (0);
-// }
-
 int		main(int argc, char **argv)
 {
-	t_data	*data;
-	
-	ft_ctrl_argc(argc, argv);
-	printf("ok test passed\n");
-    //ctrl les xpm et les init dans la structure
-    //ctrl des couleurs du sol/plafond et les init dans la structure
-    //ctrl de la map et la taper dans la structure
+	t_vars	vars;
+	t_data	img;
+
+	if (argc == 2)
+	{
+		vars.mlx = mlx_init();
+		vars.win = mlx_new_window(vars.mlx, 640, 480, "Hello world!");
+		img.img = mlx_new_image(vars.mlx, 640, 480);
+		img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
+		ft_floor_cloud_color(&img);
+		mlx_put_image_to_window(vars.mlx, vars.win, img.img, 0, 0);
+		mlx_loop(vars.mlx);
+	}
+	else
+	{
+		printf("Error\n");
+	}
+	return (0);
 }
+
+// int		main(int argc, char **argv)
+// {
+// 	t_data	*data;
+	
+// 	ft_ctrl_argc(argc, argv);
+// 	printf("ok test passed\n");
+//     //ctrl les xpm et les init dans la structure
+//     //ctrl des couleurs du sol/plafond et les init dans la structure
+//     //ctrl de la map et la taper dans la structure
+// }
