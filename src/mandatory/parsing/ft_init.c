@@ -6,7 +6,7 @@
 /*   By: thed6bel <thed6bel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 11:17:36 by thed6bel          #+#    #+#             */
-/*   Updated: 2023/07/18 20:25:24 by thed6bel         ###   ########.fr       */
+/*   Updated: 2023/07/18 20:34:34 by thed6bel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,6 @@ int	ft_file_load_tiles(t_file *file)
 	char	*ln;
 	char	*tmp;
 
-	file->no = NULL;
-	file->so = NULL;
-	file->we = NULL;
-	file->ea = NULL;
 	while (!file->ea || !file->no || !file->so || !file->we)
 	{
 		tmp = get_next_line(file->fd);
@@ -97,6 +93,10 @@ int	ft_file_init(t_file *file, char *file_path)
 	file->floor.red = -1;
 	file->floor.green = -1;
 	file->floor.blue = -1;
+	file->no = NULL;
+	file->so = NULL;
+	file->we = NULL;
+	file->ea = NULL;
 	file->file_path = ft_trim(file_path);
 	if (ft_file_check(file->file_path, ".cub"))
 		return (1);
