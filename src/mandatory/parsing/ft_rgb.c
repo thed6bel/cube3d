@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rgb.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thed6bel <thed6bel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 13:52:14 by thed6bel          #+#    #+#             */
-/*   Updated: 2023/07/18 22:52:17 by thed6bel         ###   ########.fr       */
+/*   Updated: 2023/07/19 09:57:31 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../include/cube3d.h"
 
-int	ft_color_line_export(char *str)
+int	ft_color_export(char *str)
 {
 	int	i;
 	int	value;
@@ -36,21 +36,21 @@ int	ft_color_line_export(char *str)
 	return (-1);
 }
 
-int	ft_get_file_colors(t_rgb *rgb, char *str)
+int	ft_get_colors(t_rgb *rgb, char *str)
 {
 	char	*temp;
 
 	temp = str;
 	if (*str)
-		rgb->red = ft_color_line_export(str);
+		rgb->red = ft_color_export(str);
 	while (*str && *str >= '0' && *str <= '9')
 		str++;
 	if (*str)
-		rgb->green = ft_color_line_export(str++);
+		rgb->green = ft_color_export(str++);
 	while (*str && *str >= '0' && *str <= '9')
 		str++;
 	if (*str)
-		rgb->blue = ft_color_line_export(str++);
+		rgb->blue = ft_color_export(str++);
 	while (*str && *str >= '0' && *str <= '9')
 		str++;
 	if (!*str && rgb->red >= 0 && rgb->red <= 255 && rgb->green >= 0 && \
@@ -63,7 +63,7 @@ int	ft_get_file_colors(t_rgb *rgb, char *str)
 	return (1);
 }
 
-int	ft_check_file_colors(t_file *file)
+int	ft_check_colors(t_file *file)
 {
 	int		f;
 	int		c;
@@ -80,9 +80,9 @@ int	ft_check_file_colors(t_file *file)
 		line = ft_trim(temp);
 		free(temp);
 		if (f && ft_strlen(line) > 4 && line[0] == 'F' && line[1] == ' ')
-			f = ft_get_file_colors(&file->floor, ft_trim(line + 2));
+			f = ft_get_colors(&file->floor, ft_trim(line + 2));
 		else if (c && ft_strlen(line) > 4 && line[0] == 'C' && line[1] == ' ')
-			c = ft_get_file_colors(&file->ceilling, ft_trim(line + 2));
+			c = ft_get_colors(&file->ceilling, ft_trim(line + 2));
 		free(line);
 	}
 	if ((f && printf("Error in identifier F\n")) || \

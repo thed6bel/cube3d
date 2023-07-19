@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thed6bel <thed6bel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 11:17:36 by thed6bel          #+#    #+#             */
-/*   Updated: 2023/07/18 20:34:34 by thed6bel         ###   ########.fr       */
+/*   Updated: 2023/07/19 09:57:12 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_check_tile(char **tile, char *line, char *cardinal)
 
 int	ft_file_load_tiles(t_file *file)
 {
-	char	*ln;
+	char	*l;
 	char	*tmp;
 
 	while (!file->ea || !file->no || !file->so || !file->we)
@@ -40,8 +40,8 @@ int	ft_file_load_tiles(t_file *file)
 		if (tmp == NULL)
 			break ;
 		printf("temp = %s\n", tmp);
-		// ln = ft_trim(temp);
-		// printf("ln = %s\n", ln);
+		// l = ft_trim(temp);
+		// printf("l = %s\n", l);
 		// free(temp);
 		if (!ft_strncmp("NO ", tmp, 3) && ft_check_tile(&file->no, tmp, "NO"))
 			return (1);
@@ -52,6 +52,10 @@ int	ft_file_load_tiles(t_file *file)
 		if (!ft_strncmp("EA ", tmp, 3) && ft_check_tile(&file->ea, tmp, "EA"))
 			return (1);
 		free(tmp);
+		printf("file->ea = %s\n", file->ea);
+		printf("file->no = %s\n", file->no);
+		printf("file->so = %s\n", file->so);
+		printf("file->we = %s\n", file->we);
 	}
 	if (ft_file_check(file->ea, ".xpm") || ft_file_check(file->no, ".xpm") || \
 		ft_file_check(file->so, ".xpm") || ft_file_check(file->we, ".xpm"))
@@ -66,12 +70,12 @@ int	ft_file_check(char *file_path, char *type)
 	int		fd;
 
 	if (!file_path)
-		return (printf("NULL file path! \tEXPECTED: '*%s'\n", type));
+		return (printf("NULL file path! EXPECTED: '*%s'\n", type));
 	i = 0;
 	temp = type;
 	fd = open(file_path, O_RDONLY);
 	if (fd == -1)
-		return (printf("Exception:\t%s:\t'%s'\n", file_path, strerror(errno)));
+		return (printf("Exception: %s: '%s'\n", file_path, strerror(errno)));
 	while (file_path[i] && (file_path[i] != '.' || file_path[i + 1] == '/'))
 		i++;
 	if ((!i || file_path[i - 1] == '/') && !close(fd))
@@ -81,7 +85,7 @@ int	ft_file_check(char *file_path, char *type)
 	if (!*type && !file_path[i])
 		return (close(fd));
 	else if (!close(fd))
-		printf("Bad file type!\tEXPECTED: '*%s'\n", temp);
+		printf("Bad file type! EXPECTED: '*%s'\n", temp);
 	return (1);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thed6bel <thed6bel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 10:57:59 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/07/18 23:05:21 by thed6bel         ###   ########.fr       */
+/*   Updated: 2023/07/19 10:10:19 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ int		main(int argc, char **argv)
 		ft_error("Error, too many arguments");
     if (!ft_start_parse(&file, argv[1]))
     {
+		printf("parsing OK\n");
 		vars.mlx = mlx_init();
 		vars.win = mlx_new_window(vars.mlx, 640, 480, "Hello world!");
 		vars.img = mlx_new_image(vars.mlx, 640, 480);
@@ -64,11 +65,12 @@ int		main(int argc, char **argv)
 		mlx_put_image_to_window(vars.mlx, vars.win, vars.img, 0, 0);
 		mlx_loop(vars.mlx);
 		// ft_start_3d(&cub);
+		// ft_free_all_to_exit(&cub);
 		// exit(0);
 	}
 	else
 	{
-		printf("Error exit112\n");
+		printf("Error, re-try with a good map!\n");
 	}
 	return (0);
 }

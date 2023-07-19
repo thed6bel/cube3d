@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thed6bel <thed6bel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 10:58:25 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/07/18 16:52:39 by thed6bel         ###   ########.fr       */
+/*   Updated: 2023/07/19 09:57:12 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,9 @@ int		ft_ncmp(const char *s1, const char *s2, size_t n);
 int	ft_file_init(t_file *cub, char *file_path);
 
 //ft_rgb
-int	ft_check_file_colors(t_file *file);
-int	ft_get_file_colors(t_rgb *rgb, char *str);
-int	ft_color_line_export(char *str);
+int	ft_check_colors(t_file *file);
+int	ft_get_colors(t_rgb *rgb, char *str);
+int	ft_color_export(char *str);
 
 //ft_parsing
 int	ft_start_parse(t_file *cub, char *file_path);

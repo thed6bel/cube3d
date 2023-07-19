@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parsing.c                                       :+:      :+:    :+:   */
+/*   ft_map.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/18 11:14:37 by thed6bel          #+#    #+#             */
+/*   Created: 2023/07/19 10:01:27 by hucorrei          #+#    #+#             */
 /*   Updated: 2023/07/19 10:02:55 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../include/cube3d.h"
 
-int	ft_start_parse(t_file *file, char *file_path)
+int ft_map(t_file *file)
 {
-	if (ft_file_init(file, file_path) || ft_file_load_tiles(file))
-		return (1);
-	if (ft_check_colors(file) || ft_map(file))
-	 	return (1);
-	return (0);
+	
 }
-//attention car faut faire une fonction pour free car y a des leaks!
