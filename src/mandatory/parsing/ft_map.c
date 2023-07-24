@@ -6,7 +6,7 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 10:01:27 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/07/24 10:13:38 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/07/24 10:16:19 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int ft_map(t_file *file)
     char **temp_map;
     int i = 0;
     int MAP_MAX_SIZE;
+    int j;
 
     MAP_MAX_SIZE = ft_map_max_size(file);
     temp_map = (char **)malloc(sizeof(char *) * MAP_MAX_SIZE);
@@ -44,7 +45,7 @@ int ft_map(t_file *file)
         return 1;
     while ((line = get_next_line(file->fd)))
     {
-        for (int j = 0; line[j]; j++) {
+        for (j = 0; line[j]; j++) {
             if (line[j] != '0' && line[j] != '1' && line[j] != 'N' && line[j] != 'S' &&
                 line[j] != 'E' && line[j] != 'W' && line[j] != ' ') {
                 free(line);
