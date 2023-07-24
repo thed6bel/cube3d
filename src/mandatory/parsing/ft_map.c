@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_map.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thed6bel <thed6bel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 10:01:27 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/07/23 18:51:34 by thed6bel         ###   ########.fr       */
+/*   Updated: 2023/07/24 10:13:38 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,18 @@ int is_map_valid(char **map)
 {
     int player_count = 0;
 
-    // Parcourir chaque caractère de la carte
     for (int i = 0; map[i]; i++)
     {
         for (int j = 0; map[i][j]; j++)
         {
-            // Compter le nombre de caractères de joueur
             if (map[i][j] == 'N' || map[i][j] == 'S' || map[i][j] == 'E' || map[i][j] == 'W')
                 player_count++;
-            // Vérifier que la carte est entourée de murs
             if ((i == 0 || !map[i+1] || j == 0 || !map[i][j+1]) && map[i][j] != '1')
-                return 0;  // Retourner faux si un caractère non-mur est trouvé sur le bord de la carte
+                return 0;
         }
     }
-    // Vérifier qu'il y a exactement un caractère de joueur
     if (player_count != 1)
-        return 0;  // Retourner faux s'il y a plus ou moins d'un caractère de joueur
-    // Si toutes les vérifications passent, retourner vrai
+        return 0;
     return 1;
 }
 
