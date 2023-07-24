@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thed6bel <thed6bel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 11:17:36 by thed6bel          #+#    #+#             */
-/*   Updated: 2023/07/19 09:57:12 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/07/21 10:56:48 by thed6bel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,7 @@ int	ft_file_init(t_file *file, char *file_path)
 	file->so = NULL;
 	file->we = NULL;
 	file->ea = NULL;
+	file->map = NULL;
 	file->file_path = ft_trim(file_path);
 	if (ft_file_check(file->file_path, ".cub"))
 		return (1);
