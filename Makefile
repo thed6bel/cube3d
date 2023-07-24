@@ -6,7 +6,7 @@
 #    By: thed6bel <thed6bel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/13 09:27:30 by hucorrei          #+#    #+#              #
-#    Updated: 2023/07/18 15:54:30 by thed6bel         ###   ########.fr        #
+#    Updated: 2023/07/24 18:09:01 by thed6bel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,7 @@ SRCS	= 	./src/mandatory/main.c \
 			./src/mandatory/ft_read_map.c \
 			./src/mandatory/parsing/ft_parsing.c \
 			./src/mandatory/parsing/ft_init.c \
+			./src/mandatory/parsing/ft_map.c \
 
 OBJS	= $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 

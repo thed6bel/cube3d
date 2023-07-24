@@ -3,69 +3,194 @@
 /*                                                        :::      ::::::::   */
 /*   ft_map.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thed6bel <thed6bel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 10:01:27 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/07/24 10:41:21 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/07/24 18:16:08 by thed6bel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/cube3d.h"
+#include "../../../include/cube3d.h" 
 
-int is_map_valid(char **map)
+int	ft_map_player_count(char **map)
 {
-    int player_count = 0;
+	int	x;
+	int	y;
+	int	player;
 
-    for (int i = 0; map[i]; i++)
-    {
-        for (int j = 0; map[i][j]; j++)
-        {
-            if (map[i][j] == 'N' || map[i][j] == 'S' || map[i][j] == 'E' || map[i][j] == 'W')
-                player_count++;
-            if ((i == 0 || !map[i+1] || j == 0 || !map[i][j+1]) && map[i][j] != '1')
-                return 0;
-        }
-    }
-    if (player_count != 1)
-        return 0;
-    return 1;
+	y = -1;
+	player = 0;
+	while (map[++y])
+	{
+		x = -1;
+		while (map[y][++x])
+		{
+			if (map[y][x] == '\n')
+				map[y][x] = ' ';
+			if (is_valid_map_obj(map[y][x]))
+				return (printf("Check map error! '%c' Is invalid\n", map[y][x]));
+			if (is_player(map[y][x]))
+				player++;
+		}
+	}
+	if (player != 1)
+	{
+		printf("Check map error! %i players set in map!'\n", player);
+		return (1);
+	}
+	return (0);
 }
+
+int	ft_get_map_alloc(t_file *file, int size)
+{
+	char	*temp;
+	int		result;
+
+	temp = get_next_line(file->fd);
+	result = 0;
+	while (size == 0 && ft_strisspace(temp))
+	{
+		free(temp);
+		temp = get_next_line(file->fd);
+	}
+	if (!temp)
+	{
+		file->map = malloc(sizeof(char *) * (size + 1));
+		if (!file->map)
+			return (1);
+	}
+	else
+		result = ft_get_map_alloc(file, (size + 1));
+	if (result)
+		free(temp);
+	else
+		file->map[size] = temp;
+	return (result);
+}
+
+int ft_ligne_valide_debut(char *ligne)
+{
+  int i = 0;
+
+  // Passer les espaces
+  while (ligne[i] == ' ')
+    i++;
+
+  return (ligne[i] == '1'); 
+}
+
+int ft_ligne_valide_fin(char *ligne)
+{
+  int len = ft_strlen(ligne);
+
+  // Vérifier le dernier caractère
+  return (ligne[len - 2] == '1');
+}
+
+int ft_ligne_valide(char *ligne)
+{
+    int i;
+    
+    i = 0;
+    while (ligne[i])
+    {
+        if (ligne[i] != ' ' && ligne[i] != '1')
+            return (0);
+        i++;
+    }
+    return (1);
+}
+
+int ft_check_around(char **map, int x, int y, int max_x)
+{
+	if (x > 0 && map[x - 1][y] == ' ')
+	{
+		printf("x = %i\n", x);
+		printf("y = %i\n", y);
+		printf("check around 1\n");
+		return (1);
+	}
+	if (y > 0 && map[x][y - 1] == ' ')
+	{
+		printf("x = %i\n", x);
+		printf("y = %i\n", y);
+		printf("check around 2\n");
+		return (1);
+	}
+	if (x < max_x - 1 && map[x + 1][y] == ' ')
+	{
+		printf("x = %i\n", x);
+		printf("y = %i\n", y);
+		printf("check around 3\n");
+		return (1);
+	}
+	if (map[x][y + 1] == '\n' || map[x][y + 1] == '\0')
+	{
+		printf("x = %i\n", x);
+		printf("y = %i\n", y);
+		printf("check around 4\n");
+		return (1);
+	}
+	return (0);
+}
+
+int ft_valide_map(char **map, int *nb_lines)
+{
+	int	i;
+	int	j;
+
+	if (*nb_lines == 0) 
+	{
+		*nb_lines = 0;
+		while (map[*nb_lines])
+		(*nb_lines)++;
+	}
+	if (!ft_ligne_valide(map[0]) || !ft_ligne_valide(map[*nb_lines - 1]))
+	{
+		printf("Error: Map not closed333333333333333333333333333333333\n");
+		return (1);
+	}
+	i = 0;
+	while (i < *nb_lines)
+	{
+		if (!ft_ligne_valide_debut(map[i]) || !ft_ligne_valide_fin(map[i]))
+		{
+			printf("Error: Map not closed11111111111111111111111111111\n");
+			return (1);
+		}
+		
+		j = 0;
+		while (map[i][j])
+		{
+		if (map[i][j] == '0' || map[i][j] == 'N' || map[i][j] == 'S' 
+			|| map[i][j] == 'E' || map[i][j] == 'W')
+		{
+			if (ft_check_around(map, i, j, *nb_lines))
+			{
+				printf("Error: Map not closed222222222222222222222222\n");
+				return (1);
+			}
+		}
+		j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
 
 int	ft_map(t_file *file)
 {
-	char	*line;
-	char	**temp_map;
-	int		i;
-	int		len;
-	int		j;
+	char	**checkmap;
+	int 	*nb_lines;
 
-	//temp_map = (char **)malloc(sizeof(char *) * MAP_MAX_SIZE);
-	if (!temp_map)
-		return 1;
-	i = 0;
-	while ((line = get_next_line(file->fd)))
-	{
-		for (j = 0; line[j]; j++) {
-			if (line[j] != '0' && line[j] != '1' && line[j] != 'N' && line[j] != 'S' &&
-				line[j] != 'E' && line[j] != 'W' && line[j] != ' ')
-			{
-				free(line);
-				return 1;
-			}
-		}
-		//malloc ici la taille de line pour temp_map
-		len = ft_strlen(line);
-		temp_map = malloc(sizeof(char *) * len);
-		temp_map[i] = ft_strdup(line);
-		free(line);
-		i++;
-	}
-	file->map = temp_map;
-	if (!is_map_valid(file->map))
-	{
-		printf("Error: Invalid map!\n");
-		//free tout les malloc
-		return 1;
-	}
-	return 0;
+	checkmap = NULL;
+	*nb_lines = 0;
+	if (ft_get_map_alloc(file, 0) || ft_map_player_count(file->map))
+		return (1);
+	printf("test map[3] = %s\n", file->map[3]);
+	if(ft_valide_map(file->map, nb_lines))
+		return (1);
+	return (0);
 }
+

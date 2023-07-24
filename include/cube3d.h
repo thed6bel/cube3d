@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thed6bel <thed6bel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 10:58:25 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/07/19 09:57:12 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/07/24 17:28:46 by thed6bel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,10 @@ void	ft_ctrl_argc(int argc, char **argv);
 void	ft_error(char *message);
 char	*ft_trim(const char *str);
 int		ft_ncmp(const char *s1, const char *s2, size_t n);
+int		is_valid_map_obj(char c);
+int		is_player(char c);
+int		ft_strisspace(const char *str);
+
 
 //ft_init
 int	ft_file_init(t_file *cub, char *file_path);
@@ -74,5 +78,13 @@ int	ft_file_check(char *file_path, char *type);
 int	ft_file_load_tiles(t_file *file);
 int	ft_check_tile(char **tile, char *line, char *cardinal);
 
+//ft_map
+int	ft_map(t_file *file);
+int	ft_get_map_alloc(t_file *file, int size);
+int	ft_map_player_count(char **map);
+int	get_map_pos(char **map, char pos);
+int	ft_check_map(char **map, int x, int y);
+int	ft_player_range(char **map);
+int ft_valide_map(char **map, int *nb_lines);
 
 #endif
