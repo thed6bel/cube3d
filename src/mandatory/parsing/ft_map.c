@@ -6,7 +6,7 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 10:01:27 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/07/25 10:55:34 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/07/25 13:17:48 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	ft_map_player_count(char **map)
 	}
 	if (player != 1)
 	{
-		printf("Check map error! %i players set in map!'\n", player);
+		printf("Check map error! %i player(s) set in map!'\n", player);
 		return (1);
 	}
 	return (0);
@@ -70,35 +70,38 @@ int	ft_get_map_alloc(t_file *file, int size)
 
 int ft_ligne_valide_debut(char *ligne)
 {
-  int i = 0;
+	int i = 0;
 
-  while (ligne[i] == ' ')
-    i++;
-  return (ligne[i] == '1'); 
+	while (ligne[i] == ' ')
+		i++;
+	return (ligne[i] == '1'); 
 }
 
 int ft_ligne_valide_fin(char *ligne)
 {
-  int len;
+	int len;
 
-  len = ft_strlen(ligne);
-  while (ligne[len - 2] == ' ')
-	len--;
-  return (ligne[len - 2] == '1');
+	len = ft_strlen(ligne);
+	while (ligne[len - 2] == ' ')
+		len--;
+	return (ligne[len - 2] == '1');
 }
 
-int ft_ligne_valide(char *ligne)
+int ft_ligne_valide(char *line)
 {
-    int i;
-    
-    i = 0;
-    while (ligne[i])
-    {
-        if (ligne[i] != ' ' && ligne[i] != '1')
-            return (0);
-        i++;
-    }
-    return (1);
+	int i;
+	int len;
+	
+	i = 0;
+	len = ft_strlen(line);
+	while (i < len)
+	{
+		if (line[i] != ' ' && line[i] != '1')
+			return (0);
+		i++;
+	}
+	printf("len = %i\n", len);
+	return (1);
 }
 
 int ft_check_around(char **map, int x, int y, int max_x)
@@ -117,7 +120,7 @@ int ft_check_around(char **map, int x, int y, int max_x)
 		printf("check around 2\n");
 		return (1);
 	}
-	if (x < max_x - 1 && map[x + 1][y] == ' ')
+	if (x < max_x - 1 && (map[x + 1][y] == ' ' || map[x + 1][y] == '\0'))
 	{
 		printf("x = %i\n", x);
 		printf("y = %i\n", y);
@@ -138,19 +141,21 @@ int ft_valide_map(char **map, int *nb_lines)
 {
 	int	i;
 	int	j;
+	char **tmp;
 
+	tmp = map;
 	if (*nb_lines == 0) 
 	{
-		*nb_lines = 0;
 		while (map[*nb_lines])
 		(*nb_lines)++;
 	}
-	if (!ft_ligne_valide(map[0]) || !ft_ligne_valide(map[*nb_lines - 1]))
+	i = 0;
+	if (!ft_ligne_valide(tmp[i]) || !ft_ligne_valide(tmp[*nb_lines - 1]))
 	{
+		printf("test ft_val_map\n");
 		printf("Error: Map not closed333333333333333333333333333333333\n");
 		return (1);
 	}
-	i = 0;
 	while (i < *nb_lines)
 	{
 		if (!ft_ligne_valide_debut(map[i]) || !ft_ligne_valide_fin(map[i]))

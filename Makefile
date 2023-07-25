@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: thed6bel <thed6bel@student.42.fr>          +#+  +:+       +#+         #
+#    By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/13 09:27:30 by hucorrei          #+#    #+#              #
-#    Updated: 2023/07/24 18:09:01 by thed6bel         ###   ########.fr        #
+#    Updated: 2023/07/25 13:04:17 by hucorrei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@
 
 NAME	= cub3D
 CC		= gcc
-CFLAGS	= -Wall -Wextra -Werror -g3 -fsanitize=address
+CFLAGS	= -Wall -Wextra -Werror -g -fsanitize=address
 OBJ_DIR	= .objs
 #MLX		= -lmlx -framework OpenGL -framework AppKit
 MLX	= -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
@@ -40,13 +40,13 @@ endif
 ################################################################################
 
 SRCS	= 	./src/mandatory/main.c \
-			./src/mandatory/ft_map_check.c \
-			./src/mandatory/ft_tools.c \
+			./src/mandatory/tools/ft_tools.c \
 			./src/mandatory/parsing/ft_rgb.c \
-			./src/mandatory/ft_read_map.c \
 			./src/mandatory/parsing/ft_parsing.c \
 			./src/mandatory/parsing/ft_init.c \
 			./src/mandatory/parsing/ft_map.c \
+			./src/mandatory/ft_map_check.c \
+			./src/mandatory/ft_read_map.c \
 
 OBJS	= $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 
