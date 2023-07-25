@@ -6,7 +6,7 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 10:01:27 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/07/25 10:24:48 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/07/25 10:55:34 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,18 +72,16 @@ int ft_ligne_valide_debut(char *ligne)
 {
   int i = 0;
 
-  // Passer les espaces
   while (ligne[i] == ' ')
     i++;
-
   return (ligne[i] == '1'); 
 }
 
 int ft_ligne_valide_fin(char *ligne)
 {
-  int len = ft_strlen(ligne);
+  int len;
 
-  // Vérifier le dernier caractère
+  len = ft_strlen(ligne);
   while (ligne[len - 2] == ' ')
 	len--;
   return (ligne[len - 2] == '1');
@@ -169,7 +167,7 @@ int ft_valide_map(char **map, int *nb_lines)
 		{
 			if (ft_check_around(map, i, j, *nb_lines))
 			{
-				printf("Error: Map not closed222222222222222222222222\n");
+				printf("Error: Map not closed or space inside 222222222222222222222222\n");
 				return (1);
 			}
 		}
