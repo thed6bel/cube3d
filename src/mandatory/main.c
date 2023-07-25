@@ -6,7 +6,7 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 10:57:59 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/07/25 13:11:02 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/07/25 13:37:48 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ int		main(int argc, char **argv)
 		// ft_start_3d(&cub);
 		// ft_free_all_to_exit(&cub);
 		// exit(0);
+		//system("leaks cub3D");
 	}
 	else
 	{

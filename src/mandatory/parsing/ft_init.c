@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thed6bel <thed6bel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 11:17:36 by thed6bel          #+#    #+#             */
-/*   Updated: 2023/07/21 10:56:48 by thed6bel         ###   ########.fr       */
+/*   Updated: 2023/07/25 14:08:58 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	ft_check_tile(char **tile, char *line, char *cardinal)
 {
-	printf("1\n");
+	//printf("1\n");
 	if (!*tile)
 	{
-		printf("2\n");
+		//printf("2\n");
 		*tile = ft_trim(line + 2);
 		if (!*tile)
 			return (printf("Error!\n"));
@@ -27,6 +27,7 @@ int	ft_check_tile(char **tile, char *line, char *cardinal)
 		free(line);
 	printf("ERROR! Double cardinal! '%s'\n", cardinal);
 	return (1);
+	//MALLOC tile
 }
 
 int	ft_file_load_tiles(t_file *file)
@@ -39,7 +40,7 @@ int	ft_file_load_tiles(t_file *file)
 		tmp = get_next_line(file->fd);
 		if (tmp == NULL)
 			break ;
-		printf("temp = %s\n", tmp);
+		//printf("temp = %s\n", tmp);
 		// l = ft_trim(temp);
 		// printf("l = %s\n", l);
 		// free(temp);
@@ -52,10 +53,10 @@ int	ft_file_load_tiles(t_file *file)
 		if (!ft_strncmp("EA ", tmp, 3) && ft_check_tile(&file->ea, tmp, "EA"))
 			return (1);
 		free(tmp);
-		printf("file->ea = %s\n", file->ea);
-		printf("file->no = %s\n", file->no);
-		printf("file->so = %s\n", file->so);
-		printf("file->we = %s\n", file->we);
+		// printf("file->ea = %s\n", file->ea);
+		// printf("file->no = %s\n", file->no);
+		// printf("file->so = %s\n", file->so);
+		// printf("file->we = %s\n", file->we);
 	}
 	if (ft_file_check(file->ea, ".xpm") || ft_file_check(file->no, ".xpm") || \
 		ft_file_check(file->so, ".xpm") || ft_file_check(file->we, ".xpm"))
@@ -102,9 +103,11 @@ int	ft_file_init(t_file *file, char *file_path)
 	file->we = NULL;
 	file->ea = NULL;
 	file->map = NULL;
+	file->player_dir = '\0';
 	file->file_path = ft_trim(file_path);
 	if (ft_file_check(file->file_path, ".cub"))
 		return (1);
 	file->fd = open(file->file_path, O_RDONLY);
 	return (0);
+	//MALLOC file_path
 }

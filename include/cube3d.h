@@ -6,7 +6,7 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 10:58:25 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/07/25 13:15:09 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/07/25 14:16:10 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ typedef struct s_rgb
 	int	red;
 	int	green;
 	int	blue;
-	int	t;
 }	t_rgb;
 
 typedef struct s_file
@@ -51,6 +50,7 @@ typedef struct s_file
 	t_rgb	floor;
 	t_rgb	ceilling;
 	char	**map;
+	char	player_dir;
 }				t_file;
 
 void	ft_ctrl_argc(int argc, char **argv);
@@ -59,8 +59,8 @@ void	ft_ctrl_argc(int argc, char **argv);
 void	ft_error(char *message);
 char	*ft_trim(const char *str);
 int		ft_ncmp(const char *s1, const char *s2, size_t n);
-int		is_valid_map_obj(char c);
-int		is_player(char c);
+int		is_valid_map_obj(char c, t_file *file);
+int		is_player(char c, t_file *file);
 int		ft_strisspace(const char *str);
 
 
@@ -80,11 +80,14 @@ int	ft_check_tile(char **tile, char *line, char *cardinal);
 
 //ft_map
 int	ft_map(t_file *file);
-int	ft_get_map_alloc(t_file *file, int size);
-int	ft_map_player_count(char **map);
-int	get_map_pos(char **map, char pos);
-int	ft_check_map(char **map, int x, int y);
-int	ft_player_range(char **map);
 int ft_valide_map(char **map, int *nb_lines);
+int	ft_map_player_count(char **map, t_file *file);
+
+//ft_map_tools.c
+int	ft_get_map_alloc(t_file *file, int size);
+int ft_ligne_valide_debut(char *ligne);
+int ft_ligne_valide_fin(char *ligne);
+int ft_ligne_valide(char *line);
+int ft_check_around(char **map, int x, int y, int max_x);
 
 #endif

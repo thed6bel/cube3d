@@ -6,7 +6,7 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 10:00:36 by thed6bel          #+#    #+#             */
-/*   Updated: 2023/07/25 11:02:11 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/07/25 14:35:43 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,27 @@ int	ft_strisspace(const char *str)
 	return (1);
 }
 
-int	is_player(char c)
+int	is_player(char c, t_file *file)
 {
 	if (c == 'N' || c == 'S' || c == 'E' || c == 'W')
+	{
+		if (c == 'N')
+			file->player_dir = 'N';
+		if (c == 'S')
+			file->player_dir = 'S';
+		if (c == 'E')
+			file->player_dir = 'E';
+		if (c == 'W')
+			file->player_dir = 'W';
+		printf("player_dir: %c\n", file->player_dir);
 		return (1);
+	}
 	return (0);
 }
 
-int	is_valid_map_obj(char c)
+int	is_valid_map_obj(char c, t_file *file)
 {
-	if (c == '0' || c == ' ' || c == '1' || is_player(c))
+	if (c == '0' || c == ' ' || c == '1' || is_player(c, file) || c == '\t')
 		return (0);
 	return (1);
 }
