@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_map.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thed6bel <thed6bel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 10:01:27 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/07/24 18:16:08 by thed6bel         ###   ########.fr       */
+/*   Updated: 2023/07/25 10:24:48 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,8 @@ int ft_ligne_valide_fin(char *ligne)
   int len = ft_strlen(ligne);
 
   // Vérifier le dernier caractère
+  while (ligne[len - 2] == ' ')
+	len--;
   return (ligne[len - 2] == '1');
 }
 
