@@ -6,11 +6,11 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 10:01:27 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/07/25 14:40:50 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/08/22 14:07:11 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/cube3d.h" 
+#include "../../../include/cub3d.h" 
 
 int	ft_map_player_count(char **map, t_file *file)
 {

@@ -6,11 +6,11 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 13:52:14 by thed6bel          #+#    #+#             */
-/*   Updated: 2023/07/25 13:33:36 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/08/22 14:07:50 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/cube3d.h"
+#include "../../../include/cub3d.h"
 
 int	ft_color_export(char *str)
 {

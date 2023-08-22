@@ -6,11 +6,11 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 10:00:36 by thed6bel          #+#    #+#             */
-/*   Updated: 2023/07/25 14:35:43 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/08/22 13:58:11 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/cube3d.h"
+#include "../../../include/cub3d.h"
 
 int	ft_strisspace(const char *str)
 {
@@ -31,14 +31,14 @@ int	is_player(char c, t_file *file)
 	if (c == 'N' || c == 'S' || c == 'E' || c == 'W')
 	{
 		if (c == 'N')
-			file->player_dir = 'N';
+			file->pl.dir = 'N';
 		if (c == 'S')
-			file->player_dir = 'S';
+			file->pl.dir = 'S';
 		if (c == 'E')
-			file->player_dir = 'E';
+			file->pl.dir = 'E';
 		if (c == 'W')
-			file->player_dir = 'W';
-		printf("player_dir: %c\n", file->player_dir);
+			file->pl.dir = 'W';
+		//printf("player_dir: %c\n", file->pl.dir);
 		return (1);
 	}
 	return (0);

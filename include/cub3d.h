@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 11:28:29 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/22 13:33:49 by lowathar         ###   ########.fr       */
+/*   Updated: 2023/08/22 14:55:55 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,14 +77,14 @@ typedef struct s_ray
 
 typedef struct s_tex
 {
-	t_list	*n;
-	t_list	*n_bak;
-	t_list	*s;
-	t_list	*s_bak;
-	t_list	*w;
-	t_list	*w_bak;
-	t_list	*e;
-	t_list	*e_bak;
+	char	*n;
+	char	*n_bak;
+	char	*s;
+	char	*s_bak;
+	char	*w;
+	char	*w_bak;
+	char	*e;
+	char	*e_bak;
 	t_img	*b;
 	int		floor;
 	int		ceiling;
@@ -136,6 +136,7 @@ void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
 unsigned int	my_mlx_pixel_get(t_img *data, int x, int y);
 void	my_mlx_area_put(t_img *d, t_vector p, t_vector dim, int c);
 void	mlx_img_to_img(int p[2], t_img img[2], int c1);
+t_img	*mlx_load_img(void *ptr, char *path);
 
 //player.c
 void	move_pl(int k, t_file *g, float ray_cos, float ray_sin);

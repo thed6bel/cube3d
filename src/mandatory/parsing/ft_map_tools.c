@@ -6,11 +6,11 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 14:01:33 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/07/25 14:40:37 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/08/22 14:06:57 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/cube3d.h" 
+#include "../../../include/cub3d.h" 
 
 int	ft_get_map_alloc(t_file *file, int size)
 {

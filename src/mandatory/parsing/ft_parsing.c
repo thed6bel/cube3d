@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parsing.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thed6bel <thed6bel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 11:14:37 by thed6bel          #+#    #+#             */
-/*   Updated: 2023/07/24 12:10:23 by thed6bel         ###   ########.fr       */
+/*   Updated: 2023/08/22 14:07:21 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/cube3d.h"
+#include "../../../include/cub3d.h"
 
 int	ft_start_parse(t_file *file, char *file_path)
 {

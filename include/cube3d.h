@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 10:58:25 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/07/26 13:40:17 by lowathar         ###   ########.fr       */
+/*   Updated: 2023/08/22 13:56:51 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,16 @@ typedef struct s_rgb
 
 typedef struct s_file
 {
-	int		fd;
-	char	**map;
-	char	*file_path;
-	char	*no;
-	char	*so;
-	char	*we;
-	char	*ea;
-	t_rgb	floor;
-	t_rgb	ceilling;
-	char	player_dir;
+		int		fd;
+		char	**map;
+		char	*file_path;
+		char	*no; //t_tex
+		char	*so;
+		char	*we;
+		char	*ea;
+		t_rgb	floor;
+		t_rgb	ceilling;
+		char	player_dir; //t_player dir
 }				t_file;
 
 void	ft_ctrl_argc(int argc, char **argv);

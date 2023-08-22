@@ -3,11 +3,11 @@
 /*                                                        :::      ::::::::   */
 /*   ft_map_check.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thed6bel <thed6bel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 11:43:35 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/07/18 12:04:45 by thed6bel         ###   ########.fr       */
+/*   Updated: 2023/08/22 14:07:55 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/cube3d.h"
+#include "../../include/cub3d.h"

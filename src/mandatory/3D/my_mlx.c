@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   my_mlx.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 15:48:47 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/22 13:37:20 by lowathar         ###   ########.fr       */
+/*   Updated: 2023/08/22 14:53:58 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,22 @@ void	mlx_img_to_img(int p[2], t_img img[2], int c1)
 			}
 		}
 	}
+}
+
+t_img	*mlx_load_img(void *ptr, char *path)
+{
+	int		fd;
+	t_img	*i;
+
+	i = malloc(sizeof(t_img));
+	i->i = NULL;
+	if (!path || ft_strrncmp(path, ".xpm", 4))
+		return (i);
+	fd = open(path, O_RDONLY);
+	if (fd < 0)
+		return (i);
+	close(fd);
+	i->i = mlx_xpm_file_to_image(ptr, path, &i->width, &i->height);
+	i->addr = mlx_get_data_addr(i->i, &i->bpp, &i->line_len, &i->endian);
+	return (i);
 }
