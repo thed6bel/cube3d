@@ -6,7 +6,7 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 10:57:59 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/08/23 10:46:18 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/08/23 13:06:26 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,51 +17,50 @@ void	my_mlx_pixel_put(t_img *data, int x, int y, int color)
 	char	*dst;
 
 	dst = data->addr + (y * data->line_len + x * (data->bpp / 8));
-	*(unsigned int*)dst = color;
+	*(unsigned int *)dst = color;
 }
 
-int rgb_to_hex(int r, int g, int b) {
-    return (r << 16) + (g << 8) + b;
+int	rgb_to_hex(int r, int g, int b)
+{
+	return ((r << 16) + (g << 8) + b);
 }
 
 void	ft_floor_cloud_color(t_img *data, t_file *file)
 {
 	int	x;
 	int	y;
-    int	half_height;
+	int	half_height;
 	int	hex_color_f;
 	int	hex_color_c;
 
 	half_height = 480 / 2;
-	hex_color_f = rgb_to_hex(file->floor.red, file->floor.green, file->floor.blue);
-	hex_color_c = rgb_to_hex(file->ceilling.red, file->ceilling.green, file->ceilling.blue);
-    for (int y = 0; y < half_height; y++)
-    {
-        for (int x = 0; x < 640; x++)
-        {
-            my_mlx_pixel_put(data, x, y, hex_color_c); //bleu ciel
-        }
-    }
-    for (int y = half_height; y < 480; y++)
-    {
-        for (int x = 0; x < 640; x++)
-        {
-            my_mlx_pixel_put(data, x, y, hex_color_f); //sol vert
-        }
-    }
+	hex_color_f = rgb_to_hex(file->floor.red, file->floor.green, \
+		file->floor.blue);
+	hex_color_c = rgb_to_hex(file->ceilling.red, file->ceilling.green, \
+		file->ceilling.blue);
+	for (int y = 0; y < half_height; y++)
+	{
+		for (int x = 0; x < 640; x++)
+		{
+			my_mlx_pixel_put(data, x, y, hex_color_c); //bleu ciel
+		}
+	}
+	for (int y = half_height; y < 480; y++)
+	{
+		for (int x = 0; x < 640; x++)
+		{
+			my_mlx_pixel_put(data, x, y, hex_color_f); //sol vert
+		}
+	}
 }
 
-int		main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_file	file;
 	t_img	vars;
 
-	if (argc < 2)
+	if (argc < 2 || argv[2])
 		ft_error("Error, not enough arguments");
-	else
-	
-	if (argv[2])
-		ft_error("Error, too many arguments");
 	if (!ft_start_parse(&file, argv[1]))
 	{
 		printf("parsing OK\n");
