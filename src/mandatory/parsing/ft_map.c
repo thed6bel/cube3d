@@ -6,7 +6,7 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 10:01:27 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/08/22 14:07:11 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/08/23 10:53:01 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_map_player_count(char **map, t_file *file)
 			if (map[y][x] == '\n')
 				map[y][x] = ' ';
 			if (is_valid_map_obj(map[y][x], file))
-				return (printf("Check map error! '%c' Is invalid321\n", map[y][x]));
+				return (printf("Check map error! '%c' Is invalid\n", map[y][x]));
 			if (is_player(map[y][x], file))
 				player++;
 		}
@@ -41,34 +41,31 @@ int	ft_map_player_count(char **map, t_file *file)
 	return (0);
 }
 
-int ft_valide_map(char **map, int *nb_lines)
+int	ft_valide_map(char **map, int *nb_lines)
 {
-	int	i;
-	int	j;
-	char **tmp;
+	int		i;
+	int		j;
+	char	**tmp;
 
 	tmp = map;
 	if (*nb_lines == 0) 
 	{
 		while (map[*nb_lines])
-		(*nb_lines)++;
+			(*nb_lines)++;
 	}
 	i = 0;
-	printf("nb_lines = %i\n", *nb_lines);
-	printf("test ft_val_map\n");
 	if (!ft_ligne_valide(tmp[i]) || !ft_ligne_valide(tmp[*nb_lines - 1]))
 	{
-		printf("Error: Map not closed333333333333333333333333333333333\n");
+		printf("Error: Map not closed\n");
 		return (1);
 	}
 	while (i < *nb_lines)
 	{
 		if (!ft_ligne_valide_debut(map[i]) || !ft_ligne_valide_fin(map[i]))
 		{
-			printf("Error: Map not closed11111111111111111111111111111\n");
+			printf("Error: Map not closed\n");
 			return (1);
 		}
-		
 		j = 0;
 		while (map[i][j])
 		{
@@ -77,7 +74,7 @@ int ft_valide_map(char **map, int *nb_lines)
 			{
 				if (ft_check_around(map, i, j, *nb_lines))
 				{
-					printf("Error: Map not closed or space inside 222222222222222222222222\n");
+					printf("Error: Map not closed or space inside\n");
 					return (1);
 				}
 			}
@@ -88,19 +85,16 @@ int ft_valide_map(char **map, int *nb_lines)
 	return (0);
 }
 
-
 int	ft_map(t_file *file)
 {
 	char	**checkmap;
-	int 	nb_lines;
+	int		nb_lines;
 
 	checkmap = NULL;
 	nb_lines = 0;
 	if (ft_get_map_alloc(file, 0) || ft_map_player_count(file->map, file))
 		return (1);
-	printf("test map[3] = %s\n", file->map[3]);
-	if(ft_valide_map(file->map, &nb_lines))
+	if (ft_valide_map(file->map, &nb_lines))
 		return (1);
 	return (0);
 }
-

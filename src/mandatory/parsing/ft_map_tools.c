@@ -6,7 +6,7 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 14:01:33 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/08/22 14:06:57 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/08/23 10:54:48 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,18 +40,19 @@ int	ft_get_map_alloc(t_file *file, int size)
 	//MALLOC file->map
 }
 
-int ft_ligne_valide_debut(char *ligne)
+int	ft_ligne_valide_debut(char *ligne)
 {
-	int i = 0;
+	int	i;
 
+	i = 0;
 	while (ligne[i] == ' ' || ligne[i] == '\t')
 		i++;
 	return (ligne[i] == '1'); 
 }
 
-int ft_ligne_valide_fin(char *ligne)
+int	ft_ligne_valide_fin(char *ligne)
 {
-	int len;
+	int	len;
 
 	len = ft_strlen(ligne);
 	while (ligne[len - 2] == ' ')
@@ -59,11 +60,11 @@ int ft_ligne_valide_fin(char *ligne)
 	return (ligne[len - 2] == '1');
 }
 
-int ft_ligne_valide(char *line)
+int	ft_ligne_valide(char *line)
 {
-	int i;
-	int len;
-	
+	int	i;
+	int	len;
+
 	i = 0;
 	len = ft_strlen(line);
 	while (i < len)
@@ -72,37 +73,28 @@ int ft_ligne_valide(char *line)
 			return (0);
 		i++;
 	}
-	printf("len = %i\n", len);
 	return (1);
 }
 
-int ft_check_around(char **map, int x, int y, int max_x)
+int	ft_check_around(char **map, int x, int y, int max_x)
 {
 	if (x > 0 && map[x - 1][y] == ' ')
 	{
-		printf("x = %i\n", x);
-		printf("y = %i\n", y);
 		printf("check around 1\n");
 		return (1);
 	}
 	if (y > 0 && map[x][y - 1] == ' ')
 	{
-		printf("x = %i\n", x);
-		printf("y = %i\n", y);
 		printf("check around 2\n");
 		return (1);
 	}
 	if (x < max_x - 1 && (map[x + 1][y] == ' ' || map[x + 1][y] == '\0'))
 	{
-		printf("x = %i\n", x);
-		printf("y = %i\n", y);
 		printf("check around 3\n");
 		return (1);
 	}
 	if (map[x][y + 1] == '\n' || map[x][y + 1] == '\0')
 	{
-		printf("x = %i\n", x);
-		printf("y = %i\n", y);
 		printf("check around 4\n");
 		return (1);
 	}

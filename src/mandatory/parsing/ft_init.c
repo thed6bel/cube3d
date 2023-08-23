@@ -6,18 +6,16 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 11:17:36 by thed6bel          #+#    #+#             */
-/*   Updated: 2023/08/22 14:59:57 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/08/23 10:50:47 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../include/cub3d.h"
 
-int	ft_check_tile(char **tile, char *line, char *cardinal)
+int	ft_check_t(char **tile, char *line, char *cardinal)
 {
-	//printf("1\n");
 	if (!*tile)
 	{
-		//printf("2\n");
 		*tile = ft_trim(line + 2);
 		if (!*tile)
 			return (printf("Error!\n"));
@@ -30,41 +28,7 @@ int	ft_check_tile(char **tile, char *line, char *cardinal)
 	//MALLOC tile
 }
 
-int	ft_file_load_tiles(t_file *file)
-{
-	char	*l;
-	char	*tmp;
-
-	while (!file->tex.e || !file->tex.n || !file->tex.s || !file->tex.w)
-	{
-		tmp = get_next_line(file->fd);
-		if (tmp == NULL)
-			break ;
-		//printf("temp = %s\n", tmp);
-		// l = ft_trim(temp);
-		// printf("l = %s\n", l);
-		// free(temp);
-		if (!ft_strncmp("NO ", tmp, 3) && ft_check_tile(&file->tex.n, tmp, "NO"))
-			return (1);
-		if (!ft_strncmp("SO ", tmp, 3) && ft_check_tile(&file->tex.s, tmp, "SO"))
-			return (1);
-		if (!ft_strncmp("WE ", tmp, 3) && ft_check_tile(&file->tex.w, tmp, "WE"))
-			return (1);
-		if (!ft_strncmp("EA ", tmp, 3) && ft_check_tile(&file->tex.e, tmp, "EA"))
-			return (1);
-		free(tmp);
-		// printf("file->ea = %s\n", file->ea);
-		// printf("file->no = %s\n", file->no);
-		// printf("file->so = %s\n", file->so);
-		// printf("file->we = %s\n", file->we);
-	}
-	if (ft_file_check(file->tex.e, ".xpm") || ft_file_check(file->tex.n, ".xpm") || \
-		ft_file_check(file->tex.s, ".xpm") || ft_file_check(file->tex.w, ".xpm"))
-		return (1);
-	return (0);
-}
-
-int	ft_file_check(char *file_path, char *type)
+int	ft_file_c(char *file_path, char *type)
 {
 	char	*temp;
 	int		i;
@@ -88,6 +52,32 @@ int	ft_file_check(char *file_path, char *type)
 	else if (!close(fd))
 		printf("Bad file type! EXPECTED: '*%s'\n", temp);
 	return (1);
+}
+
+int	ft_file_load_tiles(t_file *file)
+{
+	char	*l;
+	char	*tmp;
+
+	while (!file->tex.e || !file->tex.n || !file->tex.s || !file->tex.w)
+	{
+		tmp = get_next_line(file->fd);
+		if (tmp == NULL)
+			break ;
+		if (!ft_strncmp("NO ", tmp, 3) && ft_check_t(&file->tex.n, tmp, "NO"))
+			return (1);
+		if (!ft_strncmp("SO ", tmp, 3) && ft_check_t(&file->tex.s, tmp, "SO"))
+			return (1);
+		if (!ft_strncmp("WE ", tmp, 3) && ft_check_t(&file->tex.w, tmp, "WE"))
+			return (1);
+		if (!ft_strncmp("EA ", tmp, 3) && ft_check_t(&file->tex.e, tmp, "EA"))
+			return (1);
+		free(tmp);
+	}
+	if (ft_file_c(file->tex.e, ".xpm") || ft_file_c(file->tex.n, ".xpm") || \
+		ft_file_c(file->tex.s, ".xpm") || ft_file_c(file->tex.w, ".xpm"))
+		return (1);
+	return (0);
 }
 
 void	init_sprites(t_file *g)
@@ -145,7 +135,7 @@ int	ft_file_init(t_file *file, char *file_path)
 	file->map = NULL;
 	file->pl.dir = '\0';
 	file->file_path = ft_trim(file_path);
-	if (ft_file_check(file->file_path, ".cub"))
+	if (ft_file_c(file->file_path, ".cub"))
 		return (1);
 	file->fd = open(file->file_path, O_RDONLY);
 	return (0);

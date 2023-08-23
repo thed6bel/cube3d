@@ -6,15 +6,15 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 10:57:59 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/08/22 14:45:09 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/08/23 10:46:18 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
 
-void my_mlx_pixel_put(t_img *data, int x, int y, int color)
+void	my_mlx_pixel_put(t_img *data, int x, int y, int color)
 {
-	char *dst;
+	char	*dst;
 
 	dst = data->addr + (y * data->line_len + x * (data->bpp / 8));
 	*(unsigned int*)dst = color;
@@ -24,12 +24,17 @@ int rgb_to_hex(int r, int g, int b) {
     return (r << 16) + (g << 8) + b;
 }
 
-void ft_floor_cloud_color(t_img *data, t_file *file)
+void	ft_floor_cloud_color(t_img *data, t_file *file)
 {
-    int half_height = 480 / 2;
+	int	x;
+	int	y;
+    int	half_height;
+	int	hex_color_f;
+	int	hex_color_c;
 
-	int hex_color_f = rgb_to_hex(file->floor.red, file->floor.green, file->floor.blue);
-	int hex_color_c = rgb_to_hex(file->ceilling.red, file->ceilling.green, file->ceilling.blue);
+	half_height = 480 / 2;
+	hex_color_f = rgb_to_hex(file->floor.red, file->floor.green, file->floor.blue);
+	hex_color_c = rgb_to_hex(file->ceilling.red, file->ceilling.green, file->ceilling.blue);
     for (int y = 0; y < half_height; y++)
     {
         for (int x = 0; x < 640; x++)
@@ -46,20 +51,19 @@ void ft_floor_cloud_color(t_img *data, t_file *file)
     }
 }
 
-
 int		main(int argc, char **argv)
 {
-    t_file	file;
+	t_file	file;
 	t_img	vars;
 
 	if (argc < 2)
 		ft_error("Error, not enough arguments");
 	else
-    
+	
 	if (argv[2])
 		ft_error("Error, too many arguments");
-    if (!ft_start_parse(&file, argv[1]))
-    {
+	if (!ft_start_parse(&file, argv[1]))
+	{
 		printf("parsing OK\n");
 		file.mlx_ptr = mlx_init();
 		file.win_ptr = mlx_new_window(file.mlx_ptr, 640, 480, "Hello world!");
