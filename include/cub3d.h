@@ -6,7 +6,7 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 11:28:29 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/22 14:55:55 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/08/23 11:43:02 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,13 +160,9 @@ int		get_mini_color(t_file *g, int len, int xy[2]);
 //utils.c
 float	degree_to_radians(float degree);
 
-
-
-
-
-
-
-
+///////////
+//PARSING//
+///////////
 
 void	ft_ctrl_argc(int argc, char **argv);
 
@@ -178,30 +174,33 @@ int		is_valid_map_obj(char c, t_file *file);
 int		is_player(char c, t_file *file);
 int		ft_strisspace(const char *str);
 
-//ft_init
-int	ft_file_init(t_file *cub, char *file_path);
+//ft_init & ft_init2
+int		ft_file_init(t_file *cub, char *file_path);
+void	cub_init(t_file *g);
+void	init_sprites(t_file *g);
+int		ft_file_c(char *file_path, char *type);
+
 
 //ft_rgb
-int	ft_check_colors(t_file *file);
-int	ft_get_colors(t_rgb *rgb, char *str);
-int	ft_color_export(char *str);
+int		ft_check_colors(t_file *file);
+int		ft_get_colors(t_rgb *rgb, char *str);
+int		ft_color_export(char *str);
 
 //ft_parsing
-int	ft_start_parse(t_file *cub, char *file_path);
-int	ft_file_check(char *file_path, char *type);
-int	ft_file_load_tiles(t_file *file);
-int	ft_check_tile(char **tile, char *line, char *cardinal);
+int		ft_check_t(char **tile, char *line, char *cardinal);
+int		ft_file_load_tiles(t_file *file);
+int		ft_start_parse(t_file *cub, char *file_path);
 
 //ft_map
-int	ft_map(t_file *file);
-int ft_valide_map(char **map, int *nb_lines);
-int	ft_map_player_count(char **map, t_file *file);
+int		ft_map(t_file *file);
+int		ft_valid_map(char **map, int *nb_lines);
+int		ft_map_player_count(char **map, t_file *file);
 
 //ft_map_tools.c
-int	ft_get_map_alloc(t_file *file, int size);
-int ft_ligne_valide_debut(char *ligne);
-int ft_ligne_valide_fin(char *ligne);
-int ft_ligne_valide(char *line);
-int ft_check_around(char **map, int x, int y, int max_x);
+int		ft_get_map_alloc(t_file *file, int size);
+int		ft_line_valid_start(char *ligne);
+int		ft_line_valid_end(char *ligne);
+int		ft_line_valid(char *line);
+int		ft_check_around(char **map, int x, int y, int max_x);
 
 #endif

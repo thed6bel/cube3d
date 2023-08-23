@@ -6,7 +6,7 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 14:01:33 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/08/23 10:54:48 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/08/23 11:42:13 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	ft_get_map_alloc(t_file *file, int size)
 	//MALLOC file->map
 }
 
-int	ft_ligne_valide_debut(char *ligne)
+int	ft_line_valid_start(char *ligne)
 {
 	int	i;
 
@@ -50,7 +50,7 @@ int	ft_ligne_valide_debut(char *ligne)
 	return (ligne[i] == '1'); 
 }
 
-int	ft_ligne_valide_fin(char *ligne)
+int	ft_line_valid_end(char *ligne)
 {
 	int	len;
 
@@ -60,7 +60,7 @@ int	ft_ligne_valide_fin(char *ligne)
 	return (ligne[len - 2] == '1');
 }
 
-int	ft_ligne_valide(char *line)
+int	ft_line_valid(char *line)
 {
 	int	i;
 	int	len;

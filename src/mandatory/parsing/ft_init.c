@@ -6,27 +6,11 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 11:17:36 by thed6bel          #+#    #+#             */
-/*   Updated: 2023/08/23 10:50:47 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/08/23 11:29:23 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../include/cub3d.h"
-
-int	ft_check_t(char **tile, char *line, char *cardinal)
-{
-	if (!*tile)
-	{
-		*tile = ft_trim(line + 2);
-		if (!*tile)
-			return (printf("Error!\n"));
-		return (0);
-	}
-	else
-		free(line);
-	printf("ERROR! Double cardinal! '%s'\n", cardinal);
-	return (1);
-	//MALLOC tile
-}
 
 int	ft_file_c(char *file_path, char *type)
 {
@@ -52,32 +36,6 @@ int	ft_file_c(char *file_path, char *type)
 	else if (!close(fd))
 		printf("Bad file type! EXPECTED: '*%s'\n", temp);
 	return (1);
-}
-
-int	ft_file_load_tiles(t_file *file)
-{
-	char	*l;
-	char	*tmp;
-
-	while (!file->tex.e || !file->tex.n || !file->tex.s || !file->tex.w)
-	{
-		tmp = get_next_line(file->fd);
-		if (tmp == NULL)
-			break ;
-		if (!ft_strncmp("NO ", tmp, 3) && ft_check_t(&file->tex.n, tmp, "NO"))
-			return (1);
-		if (!ft_strncmp("SO ", tmp, 3) && ft_check_t(&file->tex.s, tmp, "SO"))
-			return (1);
-		if (!ft_strncmp("WE ", tmp, 3) && ft_check_t(&file->tex.w, tmp, "WE"))
-			return (1);
-		if (!ft_strncmp("EA ", tmp, 3) && ft_check_t(&file->tex.e, tmp, "EA"))
-			return (1);
-		free(tmp);
-	}
-	if (ft_file_c(file->tex.e, ".xpm") || ft_file_c(file->tex.n, ".xpm") || \
-		ft_file_c(file->tex.s, ".xpm") || ft_file_c(file->tex.w, ".xpm"))
-		return (1);
-	return (0);
 }
 
 void	init_sprites(t_file *g)
