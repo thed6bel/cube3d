@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 15:06:08 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/22 13:37:26 by lowathar         ###   ########.fr       */
+/*   Updated: 2023/08/23 11:47:29 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	cub_raycast(t_file *g)
 	float	ray_angle;
 	int		ray_count;
 	float	dist;
-	
+
 	ray_angle = g->ray.angle - g->ray.hfov;
 	ray_count = -1;
 	while (++ray_count < WIN_W)

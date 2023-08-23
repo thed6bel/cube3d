@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 15:11:08 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/22 13:35:44 by lowathar         ###   ########.fr       */
+/*   Updated: 2023/08/23 11:48:03 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	check_move(t_file *g)
 
 int	cub_update(void *param)
 {
-    t_file	*g;
+	t_file	*g;
 
 	g = param;
 	if (!(g->nframes % g->rate))

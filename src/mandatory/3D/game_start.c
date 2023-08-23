@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_start.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 13:26:22 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/22 13:37:15 by lowathar         ###   ########.fr       */
+/*   Updated: 2023/08/23 11:46:20 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,11 @@ void	init_attr(t_file *g)
 	g->miniview.height = 15 * SIZE;
 }
 
-
 void	ft_game_start(t_file *g)
 {
-    init_attr(g);
-    init_ray(g);
-    // mlx_hook(g->win_ptr, 02, 1L << 0, /* keydown */, g);
+	init_attr(g);
+	init_ray(g);
+	// mlx_hook(g->win_ptr, 02, 1L << 0, /* keydown */, g);
 	// mlx_hook(g->win_ptr, 03, 1L << 1, /* keyup */, g);
 	// mlx_hook(g->win_ptr, 17, 0, /* exit */, g);
 	// mlx_hook(g->win_ptr, 06, 1L << 6, /* mouse */, g);
