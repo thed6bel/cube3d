@@ -6,7 +6,7 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 10:57:59 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/08/23 13:06:26 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/08/23 13:09:48 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,21 +64,22 @@ int	main(int argc, char **argv)
 	if (!ft_start_parse(&file, argv[1]))
 	{
 		printf("parsing OK\n");
-		file.mlx_ptr = mlx_init();
-		file.win_ptr = mlx_new_window(file.mlx_ptr, 640, 480, "Hello world!");
-		vars.i = mlx_new_image(file.mlx_ptr, 640, 480);
-		vars.addr = mlx_get_data_addr(vars.i, &vars.bpp, &vars.line_len, &vars.endian);
-		ft_floor_cloud_color(&vars, &file);
-		mlx_put_image_to_window(file.mlx_ptr, file.win_ptr, vars.i, 0, 0);
-		mlx_loop(file.mlx_ptr);
+		// file.mlx_ptr = mlx_init();
+		// file.win_ptr = mlx_new_window(file.mlx_ptr, 640, 480, "Hello world!");
+		// vars.i = mlx_new_image(file.mlx_ptr, 640, 480);
+		// vars.addr = mlx_get_data_addr(vars.i, &vars.bpp, &vars.line_len, &vars.endian);
+		// ft_floor_cloud_color(&vars, &file);
+		// mlx_put_image_to_window(file.mlx_ptr, file.win_ptr, vars.i, 0, 0);
+		// mlx_loop(file.mlx_ptr);
 		// ft_start_3d(&cub);
 		// ft_free_all_to_exit(&cub);
-		exit(0);
 		system("leaks cub3D");
+		exit(0);
 	}
 	else
 	{
-		printf("Error, re-try with a good map!\n");
+		printf("Re-try with a good map!\n");
+		system("leaks cub3D");
 		//pas oublier de free!!!!!
 	}
 	return (0);

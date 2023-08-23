@@ -6,7 +6,7 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 14:01:33 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/08/23 11:42:13 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/08/23 13:09:30 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,24 +79,12 @@ int	ft_line_valid(char *line)
 int	ft_check_around(char **map, int x, int y, int max_x)
 {
 	if (x > 0 && map[x - 1][y] == ' ')
-	{
-		printf("check around 1\n");
 		return (1);
-	}
 	if (y > 0 && map[x][y - 1] == ' ')
-	{
-		printf("check around 2\n");
 		return (1);
-	}
 	if (x < max_x - 1 && (map[x + 1][y] == ' ' || map[x + 1][y] == '\0'))
-	{
-		printf("check around 3\n");
 		return (1);
-	}
 	if (map[x][y + 1] == '\n' || map[x][y + 1] == '\0')
-	{
-		printf("check around 4\n");
 		return (1);
-	}
 	return (0);
 }
