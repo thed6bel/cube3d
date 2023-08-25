@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 15:37:32 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/22 13:37:35 by lowathar         ###   ########.fr       */
+/*   Updated: 2023/08/23 11:49:35 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../../include/cub3d.h"
+#include "../../../include/cub3d.h"
 
 float	degree_to_radians(float degree)
 {
 	return (degree * M_PI / 180);
 }
-

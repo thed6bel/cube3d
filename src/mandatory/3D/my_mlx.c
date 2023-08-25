@@ -6,7 +6,7 @@
 /*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 15:48:47 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/22 14:51:58 by lowathar         ###   ########.fr       */
+/*   Updated: 2023/08/24 10:58:33 by lowathar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ void	mlx_img_to_img(int p[2], t_img img[2], int c1)
 		}
 	}
 }
-
 t_img	*mlx_load_img(void *ptr, char *path)
 {
 	int		fd;
@@ -71,7 +70,7 @@ t_img	*mlx_load_img(void *ptr, char *path)
 
 	i = malloc(sizeof(t_img));
 	i->i = NULL;
-	if (!path || ft_strrncmp(path, ".xpm", 4))
+	if (!path || ft_strncmp(path, ".xpm", 4))
 		return (i);
 	fd = open(path, O_RDONLY);
 	if (fd < 0)
@@ -81,4 +80,3 @@ t_img	*mlx_load_img(void *ptr, char *path)
 	i->addr = mlx_get_data_addr(i->i, &i->bpp, &i->line_len, &i->endian);
 	return (i);
 }
-

@@ -6,7 +6,7 @@
 /*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 15:11:08 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/22 13:35:44 by lowathar         ###   ########.fr       */
+/*   Updated: 2023/08/25 14:25:10 by lowathar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,13 @@ void	check_move(t_file *g)
 
 int	cub_update(void *param)
 {
-    t_file	*g;
+	t_file	*g;
 
 	g = param;
 	if (!(g->nframes % g->rate))
 	{
 		check_move(g);
-		cub_minimap(g);
+		//cub_minimap(g);
 		cub_raycast(g);
 		//cub_miniview(g);
 		//encore init struct t_file pour pas de probleme 

@@ -6,11 +6,47 @@
 /*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 13:26:22 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/22 13:37:15 by lowathar         ###   ########.fr       */
+/*   Updated: 2023/08/25 13:24:54 by lowathar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../include/cub3d.h"
+
+int	cub_keyup(int k, t_file *g)
+{
+	if (k == KEY_LEFT)
+		g->pl.keys.left_pressed = 0;
+	else if (k == KEY_RIGHT)
+		g->pl.keys.right_pressed = 0;
+	else if (k == KEY_W)
+		g->pl.keys.w_pressed = 0;
+	else if (k == KEY_A)
+		g->pl.keys.a_pressed = 0;
+	else if (k == KEY_S)
+		g->pl.keys.s_pressed = 0;
+	else if (k == KEY_D)
+		g->pl.keys.d_pressed = 0;
+	return (0);
+}
+
+int	cub_keydown(int k, t_file *g)
+{
+	// if (k == KEY_Q || k == KEY_ESC)
+	// 	cub_perror(end, g, NULL, 1);
+	if (k == KEY_LEFT)
+		g->pl.keys.left_pressed = 1;
+	else if (k == KEY_RIGHT)
+		g->pl.keys.right_pressed = 1;
+	else if (k == KEY_W)
+		g->pl.keys.w_pressed = 1;
+	else if (k == KEY_A)
+		g->pl.keys.a_pressed = 1;
+	else if (k == KEY_S)
+		g->pl.keys.s_pressed = 1;
+	else if (k == KEY_D)
+		g->pl.keys.d_pressed = 1;
+	return (0);
+}
 
 t_vector	ft_newvector(int x, int y)
 {
@@ -48,13 +84,12 @@ void	init_attr(t_file *g)
 	g->miniview.height = 15 * SIZE;
 }
 
-
 void	ft_game_start(t_file *g)
 {
-    init_attr(g);
-    init_ray(g);
-    // mlx_hook(g->win_ptr, 02, 1L << 0, /* keydown */, g);
-	// mlx_hook(g->win_ptr, 03, 1L << 1, /* keyup */, g);
+	init_attr(g);
+	init_ray(g);
+	mlx_hook(g->win_ptr, 02, 1L << 0, cub_keydown, g);
+	mlx_hook(g->win_ptr, 03, 1L << 1, cub_keyup, g);
 	// mlx_hook(g->win_ptr, 17, 0, /* exit */, g);
 	// mlx_hook(g->win_ptr, 06, 1L << 6, /* mouse */, g);
 	mlx_loop_hook(g->mlx_ptr, cub_update, g);

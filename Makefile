@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+         #
+#    By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/13 09:27:30 by hucorrei          #+#    #+#              #
-#    Updated: 2023/07/25 14:04:05 by hucorrei         ###   ########.fr        #
+#    Updated: 2023/08/25 13:06:56 by lowathar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@
 
 NAME	= cub3D
 CC		= gcc
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror -g -fsanitize=address
 OBJ_DIR	= .objs
 #MLX		= -lmlx -framework OpenGL -framework AppKit
 MLX	= -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
@@ -48,6 +48,14 @@ SRCS	= 	./src/mandatory/main.c \
 			./src/mandatory/parsing/ft_map_tools.c \
 			./src/mandatory/ft_map_check.c \
 			./src/mandatory/ft_read_map.c \
+			./src/mandatory/3D/game_start.c \
+			./src/mandatory/3D/minimap.c \
+			./src/mandatory/3D/my_mlx.c \
+			./src/mandatory/3D/player.c \
+			./src/mandatory/3D/raycast.c \
+			./src/mandatory/3D/render.c \
+			./src/mandatory/3D/texture.c \
+			./src/mandatory/3D/utils.c \
 
 OBJS	= $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 

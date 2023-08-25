@@ -6,7 +6,7 @@
 /*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 15:06:08 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/22 13:37:26 by lowathar         ###   ########.fr       */
+/*   Updated: 2023/08/25 14:37:28 by lowathar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@ void	init_ray(t_file *g)
 	g->ray.incre_angle = 2 * g->ray.hfov / WIN_W;
 	g->ray.precision = 50;
 	g->ray.lim = 11;
+	g->tex.n_bak = mlx_load_img(g->mlx_ptr, "image/wall1.xpm");
+	g->tex.s_bak = mlx_load_img(g->mlx_ptr, "image/wall2.xpm");
+	g->tex.w_bak = mlx_load_img(g->mlx_ptr, "image/wall3.xpm");
+	g->tex.e_bak = mlx_load_img(g->mlx_ptr, "image/wall3.xpm");
 }
 
 float	distance_to_wall(t_file *g, float ray_angle)
@@ -57,12 +61,13 @@ void	cub_raycast(t_file *g)
 	float	ray_angle;
 	int		ray_count;
 	float	dist;
-	
+
 	ray_angle = g->ray.angle - g->ray.hfov;
 	ray_count = -1;
 	while (++ray_count < WIN_W)
 	{
 		dist = distance_to_wall(g, ray_angle);
+		//printf("ds = %f\n", dist);
 		cub_draw(g, ray_count, dist);
 		ray_angle += g->ray.incre_angle;
 	}

@@ -6,7 +6,7 @@
 /*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 11:29:57 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/22 13:37:30 by lowathar         ###   ########.fr       */
+/*   Updated: 2023/08/25 14:55:21 by lowathar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ t_img	*get_texture(t_file *g)
 		ray_sin = -ray_sin;
 	i = g->tex.b;
 	if (g->map[(int)(g->y - ray_sin)][(int)g->x] != '1')
-		i = g->tex.n->content;
+		i = g->tex.n_bak;
 	else if (g->map[(int)(g->y + ray_sin)][(int)g->x] != '1')
-		i = g->tex.s->content;
+		i = g->tex.s_bak;
 	else if (g->map[(int)g->y][(int)(g->x + ray_cos)] != '1')
-		i = g->tex.e->content;
+		i = g->tex.e_bak;
 	else if (g->map[(int)g->y][(int)(g->x - ray_cos)] != '1')
-		i = g->tex.w->content;
+		i = g->tex.w_bak;
 	return (i);
 }
 
@@ -79,18 +79,41 @@ void	cub_draw(t_file *g, int ray_count, float dis)
 	int		wall_height;
 	float	ds;
 	int		j;
+	int	hex_color_f;
+	int	hex_color_c;
 
 	wall_height = (int)(WIN_H / (1.5 * dis));
+	hex_color_f = rgb_to_hex(g->floor.red, g->floor.green, \
+		g->floor.blue);
+	hex_color_c = rgb_to_hex(g->ceilling.red, g->ceilling.green, \
+		g->ceilling.blue);
 	ds = ((float)WIN_H / 2) - (float)wall_height;
 	j = -1;
+	while (++j < WIN_H)
+	{
+		if (j < ds)
+			my_mlx_pixel_put(&g->win_img, ray_count, j, \
+				hex_color_c);
+		else if (j >= (WIN_H / 2) + wall_height)
+			my_mlx_pixel_put(&g->win_img, ray_count, j, \
+				hex_color_f);
+	}
+
+
+	// wall_height = (int)(WIN_H / (1.5 * dis));
+	// ds = ((float)WIN_H / 2) - (float)wall_height;
+	// j = -1;
 	// while (++j < WIN_H)
 	// {
 	// 	if (j < ds)
 	// 		my_mlx_pixel_put(&g->win_img, ray_count, j, \
-	// 			get_dist_color(g->tex.ceiling, j, 0));
+	// 			8900331);
 	// 	else if (j >= (WIN_H / 2) + wall_height)
 	// 		my_mlx_pixel_put(&g->win_img, ray_count, j, \
-	// 			get_dist_color(g->tex.floor, WIN_H - j, 0));
+	// 			8187904);
 	// }
-	draw_texture(g, get_texture(g), ray_count, wall_height);
+	
+	
+	
+	//draw_texture(g, get_texture(g), ray_count, wall_height);
 }

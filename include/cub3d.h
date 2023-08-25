@@ -6,7 +6,7 @@
 /*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 11:28:29 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/22 13:33:49 by lowathar         ###   ########.fr       */
+/*   Updated: 2023/08/25 14:50:27 by lowathar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,14 +77,14 @@ typedef struct s_ray
 
 typedef struct s_tex
 {
-	t_list	*n;
-	t_list	*n_bak;
-	t_list	*s;
-	t_list	*s_bak;
-	t_list	*w;
-	t_list	*w_bak;
-	t_list	*e;
-	t_list	*e_bak;
+	char	*n;
+	t_img	*n_bak;
+	char	*s;
+	t_img	*s_bak;
+	char	*w;
+	t_img	*w_bak;
+	char	*e;
+	t_img	*e_bak;
 	t_img	*b;
 	int		floor;
 	int		ceiling;
@@ -136,6 +136,7 @@ void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
 unsigned int	my_mlx_pixel_get(t_img *data, int x, int y);
 void	my_mlx_area_put(t_img *d, t_vector p, t_vector dim, int c);
 void	mlx_img_to_img(int p[2], t_img img[2], int c1);
+t_img	*mlx_load_img(void *ptr, char *path);
 
 //player.c
 void	move_pl(int k, t_file *g, float ray_cos, float ray_sin);
@@ -159,15 +160,12 @@ int		get_mini_color(t_file *g, int len, int xy[2]);
 //utils.c
 float	degree_to_radians(float degree);
 
-
-
-
-
-
-
-
+///////////
+//PARSING//
+///////////
 
 void	ft_ctrl_argc(int argc, char **argv);
+int	rgb_to_hex(int r, int g, int b);
 
 //ft_tools
 void	ft_error(char *message);
@@ -177,30 +175,33 @@ int		is_valid_map_obj(char c, t_file *file);
 int		is_player(char c, t_file *file);
 int		ft_strisspace(const char *str);
 
-//ft_init
-int	ft_file_init(t_file *cub, char *file_path);
+//ft_init & ft_init2
+int		ft_file_init(t_file *cub, char *file_path);
+void	cub_init(t_file *g);
+void	init_sprites(t_file *g);
+int		ft_file_c(char *file_path, char *type);
+
 
 //ft_rgb
-int	ft_check_colors(t_file *file);
-int	ft_get_colors(t_rgb *rgb, char *str);
-int	ft_color_export(char *str);
+int		ft_check_colors(t_file *file);
+int		ft_get_colors(t_rgb *rgb, char *str);
+int		ft_color_export(char *str);
 
 //ft_parsing
-int	ft_start_parse(t_file *cub, char *file_path);
-int	ft_file_check(char *file_path, char *type);
-int	ft_file_load_tiles(t_file *file);
-int	ft_check_tile(char **tile, char *line, char *cardinal);
+int		ft_check_t(char **tile, char *line, char *cardinal);
+int		ft_file_load_tiles(t_file *file);
+int		ft_start_parse(t_file *cub, char *file_path);
 
 //ft_map
-int	ft_map(t_file *file);
-int ft_valide_map(char **map, int *nb_lines);
-int	ft_map_player_count(char **map, t_file *file);
+int		ft_map(t_file *file);
+int		ft_valid_map(char **map, int *nb_lines);
+int		ft_map_player_count(char **map, t_file *file);
 
 //ft_map_tools.c
-int	ft_get_map_alloc(t_file *file, int size);
-int ft_ligne_valide_debut(char *ligne);
-int ft_ligne_valide_fin(char *ligne);
-int ft_ligne_valide(char *line);
-int ft_check_around(char **map, int x, int y, int max_x);
+int		ft_get_map_alloc(t_file *file, int size);
+int		ft_line_valid_start(char *ligne);
+int		ft_line_valid_end(char *ligne);
+int		ft_line_valid(char *line);
+int		ft_check_around(char **map, int x, int y, int max_x);
 
 #endif
