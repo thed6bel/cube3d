@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 15:06:08 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/28 13:56:08 by lowathar         ###   ########.fr       */
+/*   Updated: 2023/08/28 15:32:53 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ void	init_ray(t_file *g)
 	g->ray.incre_angle = 2 * g->ray.hfov / WIN_W;
 	g->ray.precision = 50;
 	g->ray.lim = 11;
-	g->tex.n_bak = mlx_load_img(g->mlx_ptr, "image/wall4.xpm");
-	g->tex.s_bak = mlx_load_img(g->mlx_ptr, "image/wall4.xpm");
-	g->tex.w_bak = mlx_load_img(g->mlx_ptr, "image/wall4.xpm");
-	g->tex.e_bak = mlx_load_img(g->mlx_ptr, "image/wall4.xpm");
+	g->tex.n_bak = mlx_load_img(g->mlx_ptr, g->tex.n);
+	g->tex.s_bak = mlx_load_img(g->mlx_ptr, g->tex.s);
+	g->tex.w_bak = mlx_load_img(g->mlx_ptr, g->tex.w);
+	g->tex.e_bak = mlx_load_img(g->mlx_ptr, g->tex.e);
 }
 
 float	distance_to_wall(t_file *g, float ray_angle)
