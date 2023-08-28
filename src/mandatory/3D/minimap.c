@@ -3,14 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   minimap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 15:46:15 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/23 11:46:42 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/08/28 10:39:43 by lowathar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../include/cub3d.h"
+
+void	cub_miniview(t_file *g)
+{
+	int	xy[2];
+	int	aux[2];
+
+	aux[1] = -1;
+	xy[1] = (g->pl.y + 0.5) * SIZE - (int)(g->miniview.height / 2);
+	while (++aux[1] < (g->miniview.height))
+	{
+		aux[0] = -1;
+		xy[0] = (g->pl.x + 0.5) * SIZE - (int)(g->miniview.width / 2);
+		while (++aux[0] < g->miniview.width)
+		{
+			if (xy[1] >= 0 && xy[1] < (g->height * SIZE) && xy[0] >= 0 \
+						&& xy[0] < (g->width * SIZE))
+				my_mlx_pixel_put(&g->miniview, aux[0], aux[1], \
+					my_mlx_pixel_get(&g->minimap, xy[0], xy[1]));
+			else
+				my_mlx_pixel_put(&g->miniview, aux[0], aux[1], 0xFF000000);
+			xy[0]++;
+		}
+		xy[1]++;
+	}
+}
+
 
 int	get_mini_color(t_file *g, int len, int xy[2])
 {

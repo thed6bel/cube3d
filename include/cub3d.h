@@ -6,7 +6,7 @@
 /*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 11:28:29 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/25 14:50:27 by lowathar         ###   ########.fr       */
+/*   Updated: 2023/08/28 12:59:16 by lowathar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@
 # include <string.h>
 
 # ifndef WIN_H
-#  define WIN_H 480
+#  define WIN_H 720
 # endif
 
 # ifndef WIN_W
-#  define WIN_W 640
+#  define WIN_W 1080
 # endif
 
 # ifndef SIZE
@@ -156,9 +156,11 @@ void	cub_draw(t_file *g, int ray_count, float dis);
 //minimap.c
 void	cub_minimap(t_file *g);
 int		get_mini_color(t_file *g, int len, int xy[2]);
+void	cub_miniview(t_file *g);
 
 //utils.c
 float	degree_to_radians(float degree);
+void	go_black(t_file *g);
 
 ///////////
 //PARSING//

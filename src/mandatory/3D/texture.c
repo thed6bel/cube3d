@@ -6,7 +6,7 @@
 /*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 11:29:57 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/25 14:55:21 by lowathar         ###   ########.fr       */
+/*   Updated: 2023/08/28 14:03:40 by lowathar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	draw_texture(t_file *g, t_img *i, int ray_count, int wall_height)
 	int		z;
 	int		color;
 
+	//printf("i->height = %d\nwall_height = %d\n", i->height, wall_height);
 	dy = ((float)wall_height * 2) / (float)i->height;
 	ds = ((float)WIN_H / 2) - (float)wall_height;
 	cy[1] = ds;
@@ -98,6 +99,7 @@ void	cub_draw(t_file *g, int ray_count, float dis)
 			my_mlx_pixel_put(&g->win_img, ray_count, j, \
 				hex_color_f);
 	}
+	draw_texture(g, get_texture(g), ray_count, wall_height);
 
 
 	// wall_height = (int)(WIN_H / (1.5 * dis));
@@ -115,5 +117,6 @@ void	cub_draw(t_file *g, int ray_count, float dis)
 	
 	
 	
-	//draw_texture(g, get_texture(g), ray_count, wall_height);
+
+	// modifier draw pour eviter segfault car les image se supperpose !
 }
