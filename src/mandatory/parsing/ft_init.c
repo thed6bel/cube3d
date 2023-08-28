@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 11:17:36 by thed6bel          #+#    #+#             */
-/*   Updated: 2023/08/28 13:00:46 by lowathar         ###   ########.fr       */
+/*   Updated: 2023/08/28 15:20:15 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ void	init_sprites(t_file *g)
 	g->tex.s_bak = NULL;
 	g->tex.w_bak = NULL;
 	g->tex.e_bak = NULL;
+	g->prev_x = 0;
+	g->is_mouse_pressed = 0;
 	// g->tex.b = mlx_load_img(g->mlx_ptr, "image/black.xpm");
 	// g->scope = mlx_load_img(g->mlx_ptr, "image/scope.xpm");
 }

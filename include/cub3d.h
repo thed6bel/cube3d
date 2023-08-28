@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 11:28:29 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/28 12:59:16 by lowathar         ###   ########.fr       */
+/*   Updated: 2023/08/28 15:09:31 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,8 @@ typedef struct s_tex
 
 typedef struct s_file
 {
+	int			prev_x;
+	int			is_mouse_pressed;
 	int			fd;
 	char		**map;
 	char		*file_path;
@@ -118,7 +120,10 @@ typedef struct s_file
 	float		y;
 }				t_file;
 
-
+//moves.c
+int cub_mouse_press(int button, int x, int y, t_file *g);
+int cub_mouse_release(int button, int x, int y, t_file *g);
+int	cub_motion_hook(int x, int y, t_file *g);
 
 //game_start.c
 void		ft_game_start(t_file *g);

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+         #
+#    By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/13 09:27:30 by hucorrei          #+#    #+#              #
-#    Updated: 2023/08/28 14:05:03 by lowathar         ###   ########.fr        #
+#    Updated: 2023/08/28 15:09:42 by hucorrei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,6 +56,7 @@ SRCS	= 	./src/mandatory/main.c \
 			./src/mandatory/3D/render.c \
 			./src/mandatory/3D/texture.c \
 			./src/mandatory/3D/utils.c \
+			./src/mandatory/3D/moves.c \
 
 OBJS	= $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 
