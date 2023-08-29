@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+         #
+#    By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/13 09:27:30 by hucorrei          #+#    #+#              #
-#    Updated: 2023/08/28 15:09:42 by hucorrei         ###   ########.fr        #
+#    Updated: 2023/08/29 14:31:22 by lowathar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,8 +46,6 @@ SRCS	= 	./src/mandatory/main.c \
 			./src/mandatory/parsing/ft_init.c \
 			./src/mandatory/parsing/ft_map.c \
 			./src/mandatory/parsing/ft_map_tools.c \
-			./src/mandatory/ft_map_check.c \
-			./src/mandatory/ft_read_map.c \
 			./src/mandatory/3D/game_start.c \
 			./src/mandatory/3D/minimap.c \
 			./src/mandatory/3D/my_mlx.c \
