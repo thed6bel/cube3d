@@ -6,7 +6,7 @@
 /*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 10:01:27 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/08/25 13:23:49 by lowathar         ###   ########.fr       */
+/*   Updated: 2023/08/29 14:05:36 by lowathar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,5 +110,7 @@ int	ft_map(t_file *file)
 		return (1);
 	if (ft_valid_map(file->map, &nb_lines))
 		return (1);
+	file->height = nb_lines;
+    file->width = (ft_strlen(file->map[0]) - 1);
 	return (0);
 }

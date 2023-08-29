@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 11:17:36 by thed6bel          #+#    #+#             */
-/*   Updated: 2023/08/28 15:20:15 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/08/29 14:05:42 by lowathar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	cub_init(t_file *g)
 	g->tex.ceiling = -1;
 	g->pl.x = -1;
 	g->pl.y = -1;
-	g->pl.speed = 0.06;
+	g->pl.speed = 0.10;
 	g->pl.door_cooldown = 0;
 	ft_bzero(&g->pl.keys, sizeof(t_key));
 	g->mouse_x = 0;

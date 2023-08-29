@@ -6,7 +6,7 @@
 /*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 11:29:57 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/28 14:32:48 by lowathar         ###   ########.fr       */
+/*   Updated: 2023/08/29 11:46:18 by lowathar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ void	draw_texture(t_file *g, t_img *i, int ray_count, int wall_height)
 	int		z;
 	int		color;
 
-	//printf("i->height = %d\nwall_height = %d\n", i->height, wall_height);
 	if (!i)
 		return ;
 	dy = ((float)wall_height * 2) / (float)i->height;
