@@ -6,7 +6,7 @@
 /*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 11:29:57 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/30 13:35:05 by lowathar         ###   ########.fr       */
+/*   Updated: 2023/08/30 14:53:24 by lowathar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,6 @@ t_img	*get_texture(t_file *g)
 		i = g->tex.door_c;
 		return (i);
 	}
-	if (g->map[(int)g->y][(int)g->x] == 'o')
-	{
-		i = g->tex.door_o;
-		return (i);
-	}
 	if (g->map[(int)(g->y - ray_sin)][(int)g->x] != '1')
 		i = g->tex.n_bak;
 	else if (g->map[(int)(g->y + ray_sin)][(int)g->x] != '1')
@@ -51,19 +46,12 @@ int	get_tex_color(t_file *g, t_img *i, int z)
 	int	color;
 
 	color = 0x00000000;
-	//printf("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n");
 	if (g->map[(int)g->y][(int)g->x] == '1')
 		color = my_mlx_pixel_get(i, (int)(i->width * (g->x + g->y)) \
 			% i->width, z);
 	else if (g->map[(int)g->y][(int)g->x] == 'c')
 		color = my_mlx_pixel_get(i, (int)(i->width * (g->x + g->y)) \
 			% i->width, z);
-	else if (g->map[(int)g->y][(int)g->x] == 'o')
-	{
-		printf("dghqekjrfhqerfqfjrkjwerfhkwefhrkjwerfw\n");
-		color = my_mlx_pixel_get(i, (int)(i->width * (g->x + g->y)) \
-			% i->width, z);
-	}
 	return (color);
 }
 

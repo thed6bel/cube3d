@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_map_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 10:01:27 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/08/30 11:36:07 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/08/30 14:19:12 by lowathar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,11 @@ int	ft_map(t_file *file)
 {
 	char	**checkmap;
 	int		nb_lines;
+	int		i;
+	int		line_l;
 
+	i = 0;
+	line_l = 0;
 	checkmap = NULL;
 	nb_lines = 0;
 	if (ft_get_map_alloc(file, 0) || ft_map_player_count(file->map, file))
@@ -112,5 +116,12 @@ int	ft_map(t_file *file)
 		return (1);
 	file->height = nb_lines;
     file->width = (ft_strlen(file->map[0]) - 1);
+	while (i < file->height)
+	{
+    	line_l = (ft_strlen(file->map[i]) - 1);
+		if (line_l > file->width)
+			file->width = line_l;
+		i++;
+	}
 	return (0);
 }

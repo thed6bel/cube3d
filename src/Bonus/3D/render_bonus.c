@@ -6,7 +6,7 @@
 /*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 15:11:08 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/30 13:14:05 by lowathar         ###   ########.fr       */
+/*   Updated: 2023/08/30 14:50:18 by lowathar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ int	cub_update(void *param)
 		cub_minimap(g);
 		cub_raycast(g);
 		cub_miniview(g);
-		//encore init struct t_file pour pas de probleme 
 		redraw_elem(g, *g->scope, WIN_W / 2 - g->scope->width / 2, \
 			WIN_H / 2 - g->scope->height / 2);
 		redraw_elem(g, g->miniview, WIN_W - g->miniview.width - 20, \

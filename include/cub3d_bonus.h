@@ -6,7 +6,7 @@
 /*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 11:28:29 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/30 13:14:40 by lowathar         ###   ########.fr       */
+/*   Updated: 2023/08/30 14:52:54 by lowathar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,6 @@ typedef struct s_tex
 	t_img	*e_bak;
 	t_img	*b;
 	t_img	*door_c;
-	t_img	*door_o;
 	int		floor;
 	int		ceiling;
 }				t_tex;

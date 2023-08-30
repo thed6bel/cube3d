@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minimap_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 15:46:15 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/30 11:35:38 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/08/30 13:53:19 by lowathar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,10 @@ int	get_mini_color(t_file *g, int len, int xy[2])
 	color = 0xFF000000;
 	if (xy[0] < len && g->map[xy[1]][xy[0]] == ' ')
 		color = 0xFF000000;
+	else if (xy[0] < len && g->map[xy[1]][xy[0]] == 'c')
+		color = 0x00FF0000;
+	else if (xy[0] < len && g->map[xy[1]][xy[0]] == 'o')
+		color = 0x0000FF00;
 	else if (xy[0] < len && g->map[xy[1]][xy[0]] != '1')
 		color = 0x005E5C64;
 	else if (xy[0] < len)
