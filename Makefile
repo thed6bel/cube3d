@@ -6,7 +6,7 @@
 #    By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/13 09:27:30 by hucorrei          #+#    #+#              #
-#    Updated: 2023/08/30 11:39:43 by hucorrei         ###   ########.fr        #
+#    Updated: 2023/08/30 11:45:30 by hucorrei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,24 +56,26 @@ SRCS	= 		./src/mandatory/main.c \
 				./src/mandatory/3D/utils.c \
 				./src/mandatory/3D/moves.c \
 
-SRCS_BONUS =	./src/mandatory/main.c \
-				./src/mandatory/tools/ft_tools_bonus.c \
-				./src/mandatory/parsing/ft_rgb_bonus.c \
-				./src/mandatory/parsing/ft_parsing_bonus.c \
-				./src/mandatory/parsing/ft_init_bonus.c \
-				./src/mandatory/parsing/ft_map_bonus.c \
-				./src/mandatory/parsing/ft_map_tools_bonus.c \
-				./src/mandatory/3D/game_start_bonus.c \
-				./src/mandatory/3D/minimap_bonus.c \
-				./src/mandatory/3D/my_mlx_bonus.c \
-				./src/mandatory/3D/player_bonus.c \
-				./src/mandatory/3D/raycast_bonus.c \
-				./src/mandatory/3D/render_bonus.c \
-				./src/mandatory/3D/texture_bonus.c \
-				./src/mandatory/3D/utils_bonus.c \
-				./src/mandatory/3D/moves_bonus.c \
+SRCS_BONUS =	./src/Bonus/main.c \
+				./src/Bonus/tools/ft_tools_bonus.c \
+				./src/Bonus/parsing/ft_rgb_bonus.c \
+				./src/Bonus/parsing/ft_parsing_bonus.c \
+				./src/Bonus/parsing/ft_init_bonus.c \
+				./src/Bonus/parsing/ft_map_bonus.c \
+				./src/Bonus/parsing/ft_map_tools_bonus.c \
+				./src/Bonus/3D/game_start_bonus.c \
+				./src/Bonus/3D/minimap_bonus.c \
+				./src/Bonus/3D/my_mlx_bonus.c \
+				./src/Bonus/3D/player_bonus.c \
+				./src/Bonus/3D/raycast_bonus.c \
+				./src/Bonus/3D/render_bonus.c \
+				./src/Bonus/3D/texture_bonus.c \
+				./src/Bonus/3D/utils_bonus.c \
+				./src/Bonus/3D/moves_bonus.c \
 
 OBJS	= $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
+
+OBJS_BONUS	= $(addprefix $(OBJ_DIR)/, $(SRCS_BONUS:.c=.o))
 
 $(OBJ_DIR)/%.o: %.c
 	@mkdir -p $(@D)
@@ -114,7 +116,13 @@ fclean:		clean
 
 re:			fclean all
 
-bonus:		all
+bonus:		${OBJS_BONUS}
+		@echo "$(GREEN)Compilation ${CLR_RMV}of ${YELLOW}$(NAME) with bonus${CLR_RMV}..."
+		@${MAKE} -C ./libft
+		@ $(MAKE) -C ${MLX_DIR} all >/dev/null 2>&1
+		@ cp ${MLX_DIR}/libmlx.a .
+		@${CC} ${CFLAGS} ${OBJS_BONUS} ${MLX} ./libft/libft.a -o ${NAME}
+		@echo "$(GREEN)$(NAME) created[0m ✔️"
 
 git:
 		git add .

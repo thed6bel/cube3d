@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 10:57:59 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/08/25 14:48:29 by lowathar         ###   ########.fr       */
+/*   Updated: 2023/08/30 11:48:03 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void	ft_floor_cloud_color(t_img *data, t_file *file)
 		file->floor.blue);
 	hex_color_c = rgb_to_hex(file->ceilling.red, file->ceilling.green, \
 		file->ceilling.blue);
-	//printf("floor %d\nciel %d\n", hex_color_f, hex_color_c);
 	for (int y = 0; y < half_height; y++)
 	{
 		for (int x = 0; x < 640; x++)
@@ -66,15 +65,6 @@ int		main(int argc, char **argv)
 	if (!ft_start_parse(&file, argv[1]))
 	{
 		printf("parsing OK\n");
-		// file.mlx_ptr = mlx_init();
-		// file.win_ptr = mlx_new_window(file.mlx_ptr, 640, 480, "Hello world!");
-		// vars.i = mlx_new_image(file.mlx_ptr, 640, 480);
-		// vars.addr = mlx_get_data_addr(vars.i, &vars.bpp, &vars.line_len, &vars.endian);
-		// ft_floor_cloud_color(&vars, &file);
-		// mlx_put_image_to_window(file.mlx_ptr, file.win_ptr, vars.i, 0, 0);
-		// mlx_loop(file.mlx_ptr);
-		// ft_start_3d(&cub);
-		// ft_free_all_to_exit(&cub);
 		ft_game_start(&file);
 		//system("leaks cub3D");
 		exit(0);
