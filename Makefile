@@ -6,7 +6,7 @@
 #    By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/13 09:27:30 by hucorrei          #+#    #+#              #
-#    Updated: 2023/08/30 11:45:30 by hucorrei         ###   ########.fr        #
+#    Updated: 2023/08/30 14:57:38 by hucorrei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@
 
 NAME	= cub3D
 CC		= gcc
-CFLAGS	= -Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS	= -Wall -Wextra -Werror #-g -fsanitize=address
 OBJ_DIR	= .objs
 #MLX		= -lmlx -framework OpenGL -framework AppKit
 MLX	= -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
@@ -55,6 +55,7 @@ SRCS	= 		./src/mandatory/main.c \
 				./src/mandatory/3D/texture.c \
 				./src/mandatory/3D/utils.c \
 				./src/mandatory/3D/moves.c \
+				./src/mandatory/3D/end.c \
 
 SRCS_BONUS =	./src/Bonus/main.c \
 				./src/Bonus/tools/ft_tools_bonus.c \
@@ -72,6 +73,7 @@ SRCS_BONUS =	./src/Bonus/main.c \
 				./src/Bonus/3D/texture_bonus.c \
 				./src/Bonus/3D/utils_bonus.c \
 				./src/Bonus/3D/moves_bonus.c \
+				./src/Bonus/3D/end_bonus.c \
 
 OBJS	= $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 
@@ -124,10 +126,12 @@ bonus:		${OBJS_BONUS}
 		@${CC} ${CFLAGS} ${OBJS_BONUS} ${MLX} ./libft/libft.a -o ${NAME}
 		@echo "$(GREEN)$(NAME) created[0m ✔️"
 
+rebonus:	fclean bonus
+
 git:
 		git add .
 		git commit -m "$m"
 		git push
 		@ echo "$(BLUE)ALL is on your $(CYAN)GIT $(CLR_RMV)✔️"
 
-.PHONY:	all clean fclean re bonus git
+.PHONY:	all clean fclean re bonus rebonus git

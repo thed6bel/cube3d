@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 15:36:20 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/25 13:28:04 by lowathar         ###   ########.fr       */
+/*   Updated: 2023/08/30 13:56:45 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,4 @@ void	move_pl(int k, t_file *g, float ray_cos, float ray_sin)
 	if (!ft_strchr("1", \
 		g->map[(int)(g->pl.y + 0.5)][(int)(g->pl.x + 0.5 + (3 * ray_cos))]))
 		g->pl.x += ray_cos;
-	printf("player pos x : %f\nplayer pos y : %f\n", g->pl.x, g->pl.y);
-	printf("player move : %d\n", k); // comment
 }

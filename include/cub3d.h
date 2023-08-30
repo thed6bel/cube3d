@@ -6,7 +6,7 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 11:28:29 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/28 15:09:31 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/08/30 14:58:41 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,6 +166,11 @@ void	cub_miniview(t_file *g);
 //utils.c
 float	degree_to_radians(float degree);
 void	go_black(t_file *g);
+
+//end.c
+void	ft_free_matrix(char ***m);
+void	destroy_images(t_file *g);
+int		cub_end(t_file *g);
 
 ///////////
 //PARSING//

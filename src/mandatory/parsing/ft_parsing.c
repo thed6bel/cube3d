@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parsing.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 11:14:37 by thed6bel          #+#    #+#             */
-/*   Updated: 2023/08/25 13:55:00 by lowathar         ###   ########.fr       */
+/*   Updated: 2023/08/30 14:11:18 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int	ft_check_t(char **tile, char *line, char *cardinal)
 		free(line);
 	printf("ERROR! Double cardinal! '%s'\n", cardinal);
 	return (1);
-	//MALLOC tile
 }
 
 int	ft_file_load_tiles(t_file *file)
@@ -62,4 +61,3 @@ int	ft_start_parse(t_file *file, char *file_path)
 		return (1);
 	return (0);
 }
-//attention car faut faire une fonction pour free car y a des leaks!

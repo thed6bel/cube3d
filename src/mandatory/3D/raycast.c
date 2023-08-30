@@ -6,7 +6,7 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 15:06:08 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/28 15:32:53 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/08/30 14:48:39 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ float	distance_to_wall(t_file *g, float ray_angle)
 	g->ray.sin = sin(degree_to_radians(ray_angle)) / g->ray.precision;
 	g->x = g->pl.x + 0.5;
 	g->y = g->pl.y + 0.5;
-	while (!ft_strchr("1", g->map[(int)g->y][(int)g->x])) // without ray_limit
+	while (!ft_strchr("1", g->map[(int)g->y][(int)g->x]))
 	{
 		g->x += g->ray.cos;
 		g->y += g->ray.sin;

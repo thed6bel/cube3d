@@ -3,14 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_map.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 10:01:27 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/08/29 15:03:44 by lowathar         ###   ########.fr       */
+/*   Updated: 2023/08/30 13:59:30 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/cub3d.h" 
+#include "../../../include/cub3d.h"
+
+int	ft_player_error(int player)
+{
+	if (player != 1)
+	{
+		printf("Check map error! %i player(s) set in map!'\n", player);
+		printf("Error: Invalid map\n");
+		return (1);
+	}
+	return (0);
+}
 
 int	ft_map_player_count(char **map, t_file *file)
 {
@@ -37,12 +48,7 @@ int	ft_map_player_count(char **map, t_file *file)
 			}
 		}
 	}
-	if (player != 1)
-	{
-		printf("Check map error! %i player(s) set in map!'\n", player);
-		return (1);
-	}
-	return (0);
+	return (ft_player_error(player));
 }
 
 int	ft_validate_line(char **map, char *line, int l_nb, int total_lines)
@@ -118,7 +124,7 @@ int	ft_map(t_file *file)
 	file->width = (ft_strlen(file->map[i]) - 1);
 	while (i < file->height)
 	{
-    	line_l = (ft_strlen(file->map[i]) - 1);
+		line_l = (ft_strlen(file->map[i]) - 1);
 		if (line_l > file->width)
 			file->width = line_l;
 		i++;

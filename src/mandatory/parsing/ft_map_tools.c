@@ -6,7 +6,7 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 14:01:33 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/08/23 13:09:30 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/08/30 14:08:41 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int	ft_get_map_alloc(t_file *file, int size)
 	else
 		file->map[size] = temp;
 	return (result);
-	//MALLOC file->map
 }
 
 int	ft_line_valid_start(char *ligne)

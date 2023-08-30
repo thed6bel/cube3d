@@ -6,7 +6,7 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 10:00:36 by thed6bel          #+#    #+#             */
-/*   Updated: 2023/08/30 11:07:14 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/08/30 13:53:35 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ int	is_player(char c, t_file *file)
 			file->pl.dir = 'E';
 		if (c == 'W')
 			file->pl.dir = 'W';
-		//printf("player_dir: %c\n", file->pl.dir);
 		return (1);
 	}
 	return (0);
@@ -54,7 +53,6 @@ int	is_valid_map_obj(char c, t_file *file)
 void	ft_error(char *message)
 {
 	ft_putendl_fd(message, 2);
-	exit (1);
 }
 
 char	*ft_trim(const char *str)

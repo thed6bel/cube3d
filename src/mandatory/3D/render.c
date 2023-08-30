@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 15:11:08 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/30 11:07:21 by lowathar         ###   ########.fr       */
+/*   Updated: 2023/08/30 14:49:39 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void	check_move(t_file *g)
 		move_pl(KEY_S, g, 0, 0);
 	if (g->pl.keys.d_pressed)
 		move_pl(KEY_D, g, 0, 0);
-	//go_black(g);
 }
 
 int	cub_update(void *param)
@@ -52,7 +51,6 @@ int	cub_update(void *param)
 		cub_minimap(g);
 		cub_raycast(g);
 		cub_miniview(g);
-		//encore init struct t_file pour pas de probleme 
 		redraw_elem(g, *g->scope, WIN_W / 2 - g->scope->width / 2, \
 			WIN_H / 2 - g->scope->height / 2);
 		redraw_elem(g, g->miniview, WIN_W - g->miniview.width - 20, \
