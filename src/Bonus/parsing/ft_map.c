@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_map.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 10:01:27 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/08/29 14:05:36 by lowathar         ###   ########.fr       */
+/*   Updated: 2023/08/30 11:00:22 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	ft_validate_line(char **map, char *line, int l_nb, int total_lines)
 	while (line[j])
 	{
 		if (line[j] == '0' || line[j] == 'N' || line[j] == 'S'
-			|| line[j] == 'E' || line[j] == 'W')
+			|| line[j] == 'E' || line[j] == 'W' || line[j] == 'c')
 		{
 			if (ft_check_around(map, l_nb, j, total_lines))
 			{
