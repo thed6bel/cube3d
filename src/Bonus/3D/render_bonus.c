@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 15:11:08 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/30 11:35:55 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/08/30 13:14:05 by lowathar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,12 @@ int	cub_update(void *param)
 	t_file	*g;
 
 	g = param;
-	//if (!(g->nframes % g->rate))
+	if (!(g->nframes % g->rate))
 	{
+		// if (!(g->nframes % (2 * g->rate))) // a check pouranimation door 
+		// 	animation(g);
+		if (!(g->nframes % (10 * g->rate)))
+			g->pl.door_cooldown = 0;
 		check_move(g);
 		cub_minimap(g);
 		cub_raycast(g);

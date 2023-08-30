@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 15:06:08 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/30 11:35:52 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/08/30 13:17:24 by lowathar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ void	init_ray(t_file *g)
 	g->tex.s_bak = mlx_load_img(g->mlx_ptr, g->tex.s);
 	g->tex.w_bak = mlx_load_img(g->mlx_ptr, g->tex.w);
 	g->tex.e_bak = mlx_load_img(g->mlx_ptr, g->tex.e);
+	g->tex.door_c = mlx_load_img(g->mlx_ptr, "image/animation/port1_c.xpm");
+	g->tex.door_o = mlx_load_img(g->mlx_ptr, "image/animation/port1_o.xpm");
+	
 }
 
 float	distance_to_wall(t_file *g, float ray_angle)
@@ -39,11 +42,11 @@ float	distance_to_wall(t_file *g, float ray_angle)
 	g->ray.sin = sin(degree_to_radians(ray_angle)) / g->ray.precision;
 	g->x = g->pl.x + 0.5;
 	g->y = g->pl.y + 0.5;
-	while (!ft_strchr("1", g->map[(int)g->y][(int)g->x])) // without ray_limit
+	while (!ft_strchr("1c", g->map[(int)g->y][(int)g->x])) // without ray_limit
 	{
 		g->x += g->ray.cos;
 		g->y += g->ray.sin;
-		if (ft_strchr("1", g->map[(int)g->y][(int)g->x]))
+		if (ft_strchr("1c", g->map[(int)g->y][(int)g->x]))
 			my_mlx_pixel_put(&g->minimap, g->x * SIZE, g->y * SIZE, 0x00FF0000);
 		else if (ray_angle - 1 < g->ray.angle && ray_angle + 1 > g->ray.angle)
 			my_mlx_pixel_put(&g->minimap, g->x * SIZE, g->y * SIZE, 0x0000FF00);

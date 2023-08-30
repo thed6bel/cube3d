@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 11:28:29 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/30 11:35:26 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/08/30 13:14:40 by lowathar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,8 @@ typedef struct s_tex
 	char	*e;
 	t_img	*e_bak;
 	t_img	*b;
+	t_img	*door_c;
+	t_img	*door_o;
 	int		floor;
 	int		ceiling;
 }				t_tex;
@@ -145,6 +147,8 @@ t_img	*mlx_load_img(void *ptr, char *path);
 
 //player.c
 void	move_pl(int k, t_file *g, float ray_cos, float ray_sin);
+void	action_door(t_file *g);
+float	distance_to_door(t_file *g, float ray_angle, float *x, float *y);
 
 //raycast.c
 void		init_ray(t_file *g);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_start_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 13:26:22 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/30 11:35:36 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/08/30 13:12:02 by lowathar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	cub_keyup(int k, t_file *g)
 		g->pl.keys.s_pressed = 0;
 	else if (k == KEY_D)
 		g->pl.keys.d_pressed = 0;
+	else if (k == KEY_E)
+		action_door(g);
 	return (0);
 }
 

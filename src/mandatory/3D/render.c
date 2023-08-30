@@ -6,7 +6,7 @@
 /*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 15:11:08 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/29 15:05:49 by lowathar         ###   ########.fr       */
+/*   Updated: 2023/08/30 11:07:21 by lowathar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	cub_update(void *param)
 	t_file	*g;
 
 	g = param;
-	//if (!(g->nframes % g->rate))
+	if (!(g->nframes % g->rate))
 	{
 		check_move(g);
 		cub_minimap(g);
