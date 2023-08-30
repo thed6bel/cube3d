@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   my_mlx.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 15:48:47 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/28 13:29:56 by lowathar         ###   ########.fr       */
+/*   Updated: 2023/08/30 10:50:36 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,6 @@ t_img	*mlx_load_img(void *ptr, char *path)
 		return (i);
 	close(fd);
 	i->i = mlx_xpm_file_to_image(ptr, path, &i->width, &i->height);
-	printf("height image = %d\n", i->height);
 	i->addr = mlx_get_data_addr(i->i, &i->bpp, &i->line_len, &i->endian);
 	return (i);
 }

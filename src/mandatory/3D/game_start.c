@@ -6,11 +6,18 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 13:26:22 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/28 15:11:06 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/08/30 10:35:03 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../include/cub3d.h"
+
+int	ft_exit(t_file *g)
+{
+	mlx_destroy_window(g->mlx_ptr, g->win_ptr);
+	//system("leaks cub3D");
+	exit(0);
+}
 
 int	cub_keyup(int k, t_file *g)
 {
@@ -31,8 +38,8 @@ int	cub_keyup(int k, t_file *g)
 
 int	cub_keydown(int k, t_file *g)
 {
-	// if (k == KEY_Q || k == KEY_ESC)
-	// 	cub_perror(end, g, NULL, 1);
+	if (k == KEY_Q || k == KEY_ESC)
+		ft_exit(g);
 	if (k == KEY_LEFT)
 		g->pl.keys.left_pressed = 1;
 	else if (k == KEY_RIGHT)
@@ -90,7 +97,7 @@ void	ft_game_start(t_file *g)
 	init_ray(g);
 	mlx_hook(g->win_ptr, 02, 1L << 0, cub_keydown, g);
 	mlx_hook(g->win_ptr, 03, 1L << 1, cub_keyup, g);
-	// mlx_hook(g->win_ptr, 17, 0, /* exit */, g);
+	mlx_hook(g->win_ptr, 17, 0, ft_exit, g);
 	mlx_hook(g->win_ptr, 04, 1L << 2, cub_mouse_press, g);
 	mlx_hook(g->win_ptr, 05, 1L << 3, cub_mouse_release, g);
 	mlx_hook(g->win_ptr, 06, 1L << 6, cub_motion_hook, g);

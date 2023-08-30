@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rgb.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 13:52:14 by thed6bel          #+#    #+#             */
-/*   Updated: 2023/08/25 13:51:58 by lowathar         ###   ########.fr       */
+/*   Updated: 2023/08/30 10:51:04 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,6 @@ int	ft_check_colors(t_file *file)
 			c = ft_get_colors(&file->ceilling, ft_trim(line + 2));
 		free(line);
 	}
-	printf("f : %d", f);
 	if ((f && printf("Error in identifier F\n")) || \
 		(c && printf("Error in identifier C\n")))
 		return (1);
