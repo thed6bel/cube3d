@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 11:28:29 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/30 14:52:54 by lowathar         ###   ########.fr       */
+/*   Updated: 2023/08/30 15:07:29 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,96 +122,101 @@ typedef struct s_file
 }				t_file;
 
 //moves.c
-int cub_mouse_press(int button, int x, int y, t_file *g);
-int cub_mouse_release(int button, int x, int y, t_file *g);
-int	cub_motion_hook(int x, int y, t_file *g);
+int 			cub_mouse_press(int button, int x, int y, t_file *g);
+int 			cub_mouse_release(int button, int x, int y, t_file *g);
+int				cub_motion_hook(int x, int y, t_file *g);
 
 //game_start.c
-void		ft_game_start(t_file *g);
-void		init_attr(t_file *g);
-t_vector	ft_newvector(int x, int y);
+void			ft_game_start(t_file *g);
+void			init_attr(t_file *g);
+t_vector		ft_newvector(int x, int y);
 
 //render.c
-int			cub_update(void *param);
-void	check_move(t_file *g);
-void	redraw_elem(t_file *g, t_img img, int x, int y);
+int				cub_update(void *param);
+void			check_move(t_file *g);
+void			redraw_elem(t_file *g, t_img img, int x, int y);
 
 
 //my_mlx.c
-void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
+void			my_mlx_pixel_put(t_img *data, int x, int y, int color);
 unsigned int	my_mlx_pixel_get(t_img *data, int x, int y);
-void	my_mlx_area_put(t_img *d, t_vector p, t_vector dim, int c);
-void	mlx_img_to_img(int p[2], t_img img[2], int c1);
-t_img	*mlx_load_img(void *ptr, char *path);
+void			my_mlx_area_put(t_img *d, t_vector p, t_vector dim, int c);
+void			mlx_img_to_img(int p[2], t_img img[2], int c1);
+t_img			*mlx_load_img(void *ptr, char *path);
 
 //player.c
-void	move_pl(int k, t_file *g, float ray_cos, float ray_sin);
-void	action_door(t_file *g);
-float	distance_to_door(t_file *g, float ray_angle, float *x, float *y);
+void			move_pl(int k, t_file *g, float ray_cos, float ray_sin);
+void			action_door(t_file *g);
+float			distance_to_door(t_file *g, float ray_angle, float *x, float *y);
 
 //raycast.c
-void		init_ray(t_file *g);
-float	distance_to_wall(t_file *g, float ray_angle);
-void	cub_raycast(t_file *g);
+void			init_ray(t_file *g);
+float			distance_to_wall(t_file *g, float ray_angle);
+void			cub_raycast(t_file *g);
 
 //texture.c
-t_img	*get_texture(t_file *g);
-int	get_tex_color(t_file *g, t_img *i, int z);
-void	draw_texture(t_file *g, t_img *i, int ray_count, int wall_height);
-void	cub_draw(t_file *g, int ray_count, float dis);
+t_img			*get_texture(t_file *g);
+int				get_tex_color(t_file *g, t_img *i, int z);
+void			draw_texture(t_file *g, t_img *i, int ray_count, int wall_height);
+void			cub_draw(t_file *g, int ray_count, float dis);
 
 
 //minimap.c
-void	cub_minimap(t_file *g);
-int		get_mini_color(t_file *g, int len, int xy[2]);
-void	cub_miniview(t_file *g);
+void			cub_minimap(t_file *g);
+int				get_mini_color(t_file *g, int len, int xy[2]);
+void			cub_miniview(t_file *g);
 
 //utils.c
-float	degree_to_radians(float degree);
-void	go_black(t_file *g);
+float			degree_to_radians(float degree);
+void			go_black(t_file *g);
+
+//end.c
+void			ft_free_matrix(char ***m);
+void			destroy_images(t_file *g);
+int				cub_end(t_file *g);
 
 ///////////
 //PARSING//
 ///////////
 
-void	ft_ctrl_argc(int argc, char **argv);
-int	rgb_to_hex(int r, int g, int b);
+void			ft_ctrl_argc(int argc, char **argv);
+int				rgb_to_hex(int r, int g, int b);
 
 //ft_tools
-void	ft_error(char *message);
-char	*ft_trim(const char *str);
-int		ft_ncmp(const char *s1, const char *s2, size_t n);
-int		is_valid_map_obj(char c, t_file *file);
-int		is_player(char c, t_file *file);
-int		ft_strisspace(const char *str);
+void			ft_error(char *message);
+char			*ft_trim(const char *str);
+int				ft_ncmp(const char *s1, const char *s2, size_t n);
+int				is_valid_map_obj(char c, t_file *file);
+int				is_player(char c, t_file *file);
+int				ft_strisspace(const char *str);
 
 //ft_init & ft_init2
-int		ft_file_init(t_file *cub, char *file_path);
-void	cub_init(t_file *g);
-void	init_sprites(t_file *g);
-int		ft_file_c(char *file_path, char *type);
+int				ft_file_init(t_file *cub, char *file_path);
+void			cub_init(t_file *g);
+void			init_sprites(t_file *g);
+int				ft_file_c(char *file_path, char *type);
 
 
 //ft_rgb
-int		ft_check_colors(t_file *file);
-int		ft_get_colors(t_rgb *rgb, char *str);
-int		ft_color_export(char *str);
+int				ft_check_colors(t_file *file);
+int				ft_get_colors(t_rgb *rgb, char *str);
+int				ft_color_export(char *str);
 
 //ft_parsing
-int		ft_check_t(char **tile, char *line, char *cardinal);
-int		ft_file_load_tiles(t_file *file);
-int		ft_start_parse(t_file *cub, char *file_path);
+int				ft_check_t(char **tile, char *line, char *cardinal);
+int				ft_file_load_tiles(t_file *file);
+int				ft_start_parse(t_file *cub, char *file_path);
 
 //ft_map
-int		ft_map(t_file *file);
-int		ft_valid_map(char **map, int *nb_lines);
-int		ft_map_player_count(char **map, t_file *file);
+int				ft_map(t_file *file);
+int				ft_valid_map(char **map, int *nb_lines);
+int				ft_map_player_count(char **map, t_file *file);
 
 //ft_map_tools.c
-int		ft_get_map_alloc(t_file *file, int size);
-int		ft_line_valid_start(char *ligne);
-int		ft_line_valid_end(char *ligne);
-int		ft_line_valid(char *line);
-int		ft_check_around(char **map, int x, int y, int max_x);
+int				ft_get_map_alloc(t_file *file, int size);
+int				ft_line_valid_start(char *ligne);
+int				ft_line_valid_end(char *ligne);
+int				ft_line_valid(char *line);
+int				ft_check_around(char **map, int x, int y, int max_x);
 
 #endif
