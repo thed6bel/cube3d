@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minimap_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 15:46:15 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/30 13:53:19 by lowathar         ###   ########.fr       */
+/*   Updated: 2023/08/30 15:13:27 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	cub_miniview(t_file *g)
 		xy[1]++;
 	}
 }
-
 
 int	get_mini_color(t_file *g, int len, int xy[2])
 {

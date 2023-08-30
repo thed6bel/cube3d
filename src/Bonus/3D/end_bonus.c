@@ -6,11 +6,28 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 14:22:04 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/30 11:35:33 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/08/30 15:11:57 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../include/cub3d_bonus.h"
+
+void	ft_free_matrix(char ***m)
+{
+	int	i;
+
+	i = 0;
+	while (m && m[0] && m[0][i])
+	{
+		free(m[0][i]);
+		i++;
+	}
+	if (m)
+	{
+		free(m[0]);
+		*m = NULL;
+	}
+}
 
 void	free_animation(t_file *g, t_list *start)
 {
@@ -34,24 +51,28 @@ void	destroy_images(t_file *g)
 	free_animation(g, g->tex.s_bak);
 	free_animation(g, g->tex.e_bak);
 	free_animation(g, g->tex.w_bak);
-	if (g->tex.b->i)
-		mlx_destroy_image(g->mlx_ptr, g->tex.b->i);
 	if (g->win_img.i)
 		mlx_destroy_image(g->mlx_ptr, g->win_img.i);
 	if (g->win_g.i)
 		mlx_destroy_image(g->mlx_ptr, g->win_g.i);
 	if (g->win_r.i)
 		mlx_destroy_image(g->mlx_ptr, g->win_r.i);
-	if (g->scope->i)
-		mlx_destroy_image(g->mlx_ptr, g->scope->i);
 	if (g->win_ptr)
 		mlx_destroy_window(g->mlx_ptr, g->win_ptr);
 	if (g->minimap.i)
 		mlx_destroy_image(g->mlx_ptr, g->minimap.i);
 	if (g->miniview.i)
 		mlx_destroy_image(g->mlx_ptr, g->miniview.i);
-	free(g->tex.b);
-	free(g->scope);
+	if (g->file_path)
+		free(g->file_path);
+	if (g->tex.n)
+		free(g->tex.n);
+	if (g->tex.s)
+		free(g->tex.s);
+	if (g->tex.w)
+		free(g->tex.w);
+	if (g->tex.e)
+		free(g->tex.e);
 }
 
 void	cub_end(t_file *g)
@@ -62,4 +83,6 @@ void	cub_end(t_file *g)
 	if (g->fd > 0)
 		close(g->fd);
 	destroy_images(g);
+	system("leaks cub3D");
+	exit(0);
 }

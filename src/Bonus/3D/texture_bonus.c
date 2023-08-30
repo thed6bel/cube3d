@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texture_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 11:29:57 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/30 14:53:24 by lowathar         ###   ########.fr       */
+/*   Updated: 2023/08/30 15:16:07 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,8 @@ void	cub_draw(t_file *g, int ray_count, float dis)
 	int		wall_height;
 	float	ds;
 	int		j;
-	int	hex_color_f;
-	int	hex_color_c;
+	int		hex_color_f;
+	int		hex_color_c;
 
 	wall_height = (int)(WIN_H / (1.5 * dis));
 	hex_color_f = rgb_to_hex(g->floor.red, g->floor.green, \

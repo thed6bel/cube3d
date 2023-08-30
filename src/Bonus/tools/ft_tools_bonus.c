@@ -6,7 +6,7 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 10:00:36 by thed6bel          #+#    #+#             */
-/*   Updated: 2023/08/30 11:34:46 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/08/30 15:16:46 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ int	is_player(char c, t_file *file)
 			file->pl.dir = 'E';
 		if (c == 'W')
 			file->pl.dir = 'W';
-		//printf("player_dir: %c\n", file->pl.dir);
 		return (1);
 	}
 	return (0);
