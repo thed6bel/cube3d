@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   keycode.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/27 15:37:32 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/28 11:51:35 by lowathar         ###   ########.fr       */
+/*   Created: 2023/07/27 15:25:22 by lowathar          #+#    #+#             */
+/*   Updated: 2023/07/27 15:26:02 by lowathar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/cub3d.h"
+#ifndef KEYCODES_H
 
-float	degree_to_radians(float degree)
-{
-	return (degree * M_PI / 180);
-}
+# define KEYCODES_H
 
-void	go_black(t_file *g)
-{
-	int x;
-	int y;
+#  define KEY_ESC 53
+#  define KEY_W 13
+#  define KEY_Q 12
+#  define KEY_R 15
+#  define KEY_A 0
+#  define KEY_S 1
+#  define KEY_D 2
+#  define KEY_E 14
+#  define KEY_UP 126
+#  define KEY_DOWN 125
+#  define KEY_LEFT 123
+#  define KEY_RIGHT 124
 
-	x = 0;
-	while (x <= WIN_W)
-	{
-		y = 0;
-		while(y <= WIN_H)
-		{
-			my_mlx_pixel_put(&g->win_img, x, y, 0x000000);
-			y++;
-		}
-		x++;
-	}
-}
+#endif

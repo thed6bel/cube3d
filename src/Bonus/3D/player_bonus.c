@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   player.c                                           :+:      :+:    :+:   */
+/*   player_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 15:36:20 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/25 13:28:04 by lowathar         ###   ########.fr       */
+/*   Updated: 2023/08/30 11:35:48 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/cub3d.h"
+#include "../../../include/cub3d_bonus.h"
 
 void	move_pl(int k, t_file *g, float ray_cos, float ray_sin)
 {

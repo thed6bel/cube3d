@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+         #
+#    By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/13 09:27:30 by hucorrei          #+#    #+#              #
-#    Updated: 2023/08/29 14:31:22 by lowathar         ###   ########.fr        #
+#    Updated: 2023/08/30 11:39:43 by hucorrei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,22 +39,39 @@ endif
 #                                 PROGRAM'S SRCS                               #
 ################################################################################
 
-SRCS	= 	./src/mandatory/main.c \
-			./src/mandatory/tools/ft_tools.c \
-			./src/mandatory/parsing/ft_rgb.c \
-			./src/mandatory/parsing/ft_parsing.c \
-			./src/mandatory/parsing/ft_init.c \
-			./src/mandatory/parsing/ft_map.c \
-			./src/mandatory/parsing/ft_map_tools.c \
-			./src/mandatory/3D/game_start.c \
-			./src/mandatory/3D/minimap.c \
-			./src/mandatory/3D/my_mlx.c \
-			./src/mandatory/3D/player.c \
-			./src/mandatory/3D/raycast.c \
-			./src/mandatory/3D/render.c \
-			./src/mandatory/3D/texture.c \
-			./src/mandatory/3D/utils.c \
-			./src/mandatory/3D/moves.c \
+SRCS	= 		./src/mandatory/main.c \
+				./src/mandatory/tools/ft_tools.c \
+				./src/mandatory/parsing/ft_rgb.c \
+				./src/mandatory/parsing/ft_parsing.c \
+				./src/mandatory/parsing/ft_init.c \
+				./src/mandatory/parsing/ft_map.c \
+				./src/mandatory/parsing/ft_map_tools.c \
+				./src/mandatory/3D/game_start.c \
+				./src/mandatory/3D/minimap.c \
+				./src/mandatory/3D/my_mlx.c \
+				./src/mandatory/3D/player.c \
+				./src/mandatory/3D/raycast.c \
+				./src/mandatory/3D/render.c \
+				./src/mandatory/3D/texture.c \
+				./src/mandatory/3D/utils.c \
+				./src/mandatory/3D/moves.c \
+
+SRCS_BONUS =	./src/mandatory/main.c \
+				./src/mandatory/tools/ft_tools_bonus.c \
+				./src/mandatory/parsing/ft_rgb_bonus.c \
+				./src/mandatory/parsing/ft_parsing_bonus.c \
+				./src/mandatory/parsing/ft_init_bonus.c \
+				./src/mandatory/parsing/ft_map_bonus.c \
+				./src/mandatory/parsing/ft_map_tools_bonus.c \
+				./src/mandatory/3D/game_start_bonus.c \
+				./src/mandatory/3D/minimap_bonus.c \
+				./src/mandatory/3D/my_mlx_bonus.c \
+				./src/mandatory/3D/player_bonus.c \
+				./src/mandatory/3D/raycast_bonus.c \
+				./src/mandatory/3D/render_bonus.c \
+				./src/mandatory/3D/texture_bonus.c \
+				./src/mandatory/3D/utils_bonus.c \
+				./src/mandatory/3D/moves_bonus.c \
 
 OBJS	= $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 

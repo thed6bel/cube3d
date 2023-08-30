@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   moves.c                                            :+:      :+:    :+:   */
+/*   moves_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 15:02:43 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/08/28 15:19:46 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/08/30 11:35:41 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/cub3d.h"
+#include "../../../include/cub3d_bonus.h"
 
 int	cub_mouse_press(int button, int x, int y, t_file *g)
 {

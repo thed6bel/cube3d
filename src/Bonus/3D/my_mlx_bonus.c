@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   my_mlx.c                                           :+:      :+:    :+:   */
+/*   my_mlx_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 15:48:47 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/28 13:29:56 by lowathar         ###   ########.fr       */
+/*   Updated: 2023/08/30 11:35:46 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/cub3d.h"
+#include "../../../include/cub3d_bonus.h"
 
 void	my_mlx_pixel_put(t_img *data, int x, int y, int color)
 {

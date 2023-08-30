@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_map_tools.c                                     :+:      :+:    :+:   */
+/*   ft_map_tools_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 14:01:33 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/08/23 13:09:30 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/08/30 11:36:09 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/cub3d.h" 
+#include "../../../include/cub3d_bonus.h" 
 
 int	ft_get_map_alloc(t_file *file, int size)
 {
