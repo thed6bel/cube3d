@@ -6,7 +6,7 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 14:22:04 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/30 15:11:57 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/08/30 15:27:59 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ void	free_animation(t_file *g, t_list *start)
 
 void	destroy_images(t_file *g)
 {
-	free_animation(g, g->tex.n_bak);
-	free_animation(g, g->tex.s_bak);
-	free_animation(g, g->tex.e_bak);
-	free_animation(g, g->tex.w_bak);
+	// free_animation(g, g->tex.n_bak);
+	// free_animation(g, g->tex.s_bak);
+	// free_animation(g, g->tex.e_bak);
+	// free_animation(g, g->tex.w_bak);
 	if (g->win_img.i)
 		mlx_destroy_image(g->mlx_ptr, g->win_img.i);
 	if (g->win_g.i)
@@ -75,10 +75,10 @@ void	destroy_images(t_file *g)
 		free(g->tex.e);
 }
 
-void	cub_end(t_file *g)
+int	cub_end(t_file *g)
 {
 	if (!g)
-		return ;
+		return (0);
 	ft_free_matrix(&g->map);
 	if (g->fd > 0)
 		close(g->fd);

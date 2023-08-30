@@ -6,7 +6,7 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 15:11:08 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/30 15:15:48 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/08/30 15:39:19 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ int	cub_update(void *param)
 		cub_minimap(g);
 		cub_raycast(g);
 		cub_miniview(g);
-		redraw_elem(g, *g->scope, WIN_W / 2 - g->scope->width / 2, \
-			WIN_H / 2 - g->scope->height / 2);
+		// redraw_elem(g, *g->scope, WIN_W / 2 - g->scope->width / 2, \
+		// 	WIN_H / 2 - g->scope->height / 2);
 		redraw_elem(g, g->miniview, WIN_W - g->miniview.width - 20, \
 			WIN_H - g->miniview.height - 20);
 		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->win_img.i, 0, 0);

@@ -6,7 +6,7 @@
 #    By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/13 09:27:30 by hucorrei          #+#    #+#              #
-#    Updated: 2023/08/30 14:57:38 by hucorrei         ###   ########.fr        #
+#    Updated: 2023/08/30 15:28:40 by hucorrei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@
 
 NAME	= cub3D
 CC		= gcc
-CFLAGS	= -Wall -Wextra -Werror #-g -fsanitize=address
+CFLAGS	= -Wall -Wextra -Werror -g -fsanitize=address
 OBJ_DIR	= .objs
 #MLX		= -lmlx -framework OpenGL -framework AppKit
 MLX	= -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
