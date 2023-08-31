@@ -6,13 +6,13 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 13:55:52 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/02/02 10:04:52 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/08/31 10:50:11 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr_GNL(char *s)
+char	*ft_strchr_gnl(char *s)
 {
 	if (!s)
 		return (0);
@@ -23,7 +23,7 @@ char	*ft_strchr_GNL(char *s)
 	return (NULL);
 }
 
-char	*ft_strjoin_GNL(char *lstr, char *buff)
+char	*ft_strjoin_gnl(char *lstr, char *buff)
 {
 	ssize_t	i;
 	ssize_t	j;
@@ -36,7 +36,8 @@ char	*ft_strjoin_GNL(char *lstr, char *buff)
 			return (NULL);
 		lstr[0] = '\0';
 	}
-	str = malloc(sizeof(char) * ((ft_strlen_GNL(lstr) + ft_strlen_GNL(buff)) + 1));
+	str = malloc(sizeof(char) * ((ft_strlen_gnl(lstr) + \
+		ft_strlen_gnl(buff)) + 1));
 	if (!str)
 		return (ft_free(&lstr));
 	i = -1;
@@ -51,7 +52,7 @@ char	*ft_strjoin_GNL(char *lstr, char *buff)
 	return (str);
 }
 
-size_t	ft_strlen_GNL(char *s)
+size_t	ft_strlen_gnl(char *s)
 {
 	size_t	i;
 

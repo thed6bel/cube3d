@@ -6,7 +6,7 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 13:26:22 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/30 15:29:34 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/08/30 15:45:44 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void	ft_game_start(t_file *g)
 	init_ray(g);
 	mlx_hook(g->win_ptr, 02, 1L << 0, cub_keydown, g);
 	mlx_hook(g->win_ptr, 03, 1L << 1, cub_keyup, g);
-	// mlx_hook(g->win_ptr, 17, 0, cub_end, g);
+	mlx_hook(g->win_ptr, 17, 0, cub_end, g);
 	mlx_hook(g->win_ptr, 04, 1L << 2, cub_mouse_press, g);
 	mlx_hook(g->win_ptr, 05, 1L << 3, cub_mouse_release, g);
 	mlx_hook(g->win_ptr, 06, 1L << 6, cub_motion_hook, g);

@@ -6,7 +6,7 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 13:55:43 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/02/02 10:05:45 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/08/31 10:51:52 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*ft_readstr(int fd, char *lstr)
 	if (!buff)
 		return (NULL);
 	read_byte = 1;
-	while (!ft_strchr_GNL(lstr) && read_byte != 0)
+	while (!ft_strchr_gnl(lstr) && read_byte != 0)
 	{
 		read_byte = read(fd, buff, BUFFER_SIZE);
 		if (read_byte == -1)
@@ -46,7 +46,7 @@ char	*ft_readstr(int fd, char *lstr)
 			return (NULL);
 		}
 		buff[read_byte] = '\0';
-		lstr = ft_strjoin_GNL(lstr, buff);
+		lstr = ft_strjoin_gnl(lstr, buff);
 	}
 	free(buff);
 	return (lstr);

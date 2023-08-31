@@ -6,12 +6,11 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 13:32:22 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/02/01 14:06:50 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/08/31 10:48:53 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 
 void	ft_putnbr(int n)
 {

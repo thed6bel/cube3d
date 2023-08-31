@@ -6,12 +6,12 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 11:28:29 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/30 15:05:25 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/08/31 10:42:21 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUBE3D_H
-# define CUBE3D_H
+#ifndef CUB3D_H
+# define CUB3D_H
 
 # include "../libft/libft.h"
 # include "my_mlx.h"
@@ -35,7 +35,6 @@
 # ifndef SIZE
 #  define SIZE 7
 # endif
-
 
 typedef struct s_rgb
 {
@@ -121,8 +120,8 @@ typedef struct s_file
 }				t_file;
 
 //moves.c
-int 			cub_mouse_press(int button, int x, int y, t_file *g);
-int 			cub_mouse_release(int button, int x, int y, t_file *g);
+int				cub_mouse_press(int button, int x, int y, t_file *g);
+int				cub_mouse_release(int button, int x, int y, t_file *g);
 int				cub_motion_hook(int x, int y, t_file *g);
 
 //game_start.c
@@ -134,7 +133,6 @@ t_vector		ft_newvector(int x, int y);
 int				cub_update(void *param);
 void			check_move(t_file *g);
 void			redraw_elem(t_file *g, t_img img, int x, int y);
-
 
 //my_mlx.c
 void			my_mlx_pixel_put(t_img *data, int x, int y, int color);
@@ -154,9 +152,9 @@ void			cub_raycast(t_file *g);
 //texture.c
 t_img			*get_texture(t_file *g);
 int				get_tex_color(t_file *g, t_img *i, int z);
-void			draw_texture(t_file *g, t_img *i, int ray_count, int wall_height);
+void			draw_texture(t_file *g, t_img *i, int ray_count, \
+					int wall_height);
 void			cub_draw(t_file *g, int ray_count, float dis);
-
 
 //minimap.c
 void			cub_minimap(t_file *g);
@@ -192,7 +190,6 @@ int				ft_file_init(t_file *cub, char *file_path);
 void			cub_init(t_file *g);
 void			init_sprites(t_file *g);
 int				ft_file_c(char *file_path, char *type);
-
 
 //ft_rgb
 int				ft_check_colors(t_file *file);

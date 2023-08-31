@@ -6,7 +6,7 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 14:22:04 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/30 15:27:59 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/08/30 15:44:00 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,7 @@ void	free_animation(t_file *g, t_list *start)
 
 void	destroy_images(t_file *g)
 {
-	// free_animation(g, g->tex.n_bak);
-	// free_animation(g, g->tex.s_bak);
-	// free_animation(g, g->tex.e_bak);
-	// free_animation(g, g->tex.w_bak);
+	// free_animation(g, ??);
 	if (g->win_img.i)
 		mlx_destroy_image(g->mlx_ptr, g->win_img.i);
 	if (g->win_g.i)

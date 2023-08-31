@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 09:27:03 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/07/27 14:50:41 by lowathar         ###   ########.fr       */
+/*   Updated: 2023/08/31 10:50:47 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,9 +87,9 @@ int		ft_hexlen(unsigned int nbr);
 void	ft_putstr(char *str);
 void	ft_puthex(unsigned int num, char format);
 char	*get_next_line(int fd);
-char	*ft_strchr_GNL(char *s);
-char	*ft_strjoin_GNL(char *lstr, char *buff);
-size_t	ft_strlen_GNL(char *s);
+char	*ft_strchr_gnl(char *s);
+char	*ft_strjoin_gnl(char *lstr, char *buff);
+size_t	ft_strlen_gnl(char *s);
 char	*ft_getline(char *lstr);
 char	*ft_newlstr(char *lstr);
 char	*ft_readstr(int fd, char *lstr);

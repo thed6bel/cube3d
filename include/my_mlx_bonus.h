@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   my_mlx.h                                           :+:      :+:    :+:   */
+/*   my_mlx_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 14:48:59 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/22 13:34:17 by lowathar         ###   ########.fr       */
+/*   Updated: 2023/08/31 10:47:31 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MY_MLX_H
+#ifndef MY_MLX_BONUS_H
 
-# define MY_MLX_H
+# define MY_MLX_BONUS_H
 
 # include "../libft/libft.h"
 
