@@ -6,7 +6,7 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 13:26:22 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/30 15:45:44 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/08/31 10:59:29 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ int	cub_keyup(int k, t_file *g)
 		g->pl.keys.left_pressed = 0;
 	else if (k == KEY_RIGHT)
 		g->pl.keys.right_pressed = 0;
-	else if (k == KEY_W)
+	else if (k == KEY_W || k == KEY_UP)
 		g->pl.keys.w_pressed = 0;
 	else if (k == KEY_A)
 		g->pl.keys.a_pressed = 0;
-	else if (k == KEY_S)
+	else if (k == KEY_S || k == KEY_DOWN)
 		g->pl.keys.s_pressed = 0;
 	else if (k == KEY_D)
 		g->pl.keys.d_pressed = 0;
@@ -39,11 +39,11 @@ int	cub_keydown(int k, t_file *g)
 		g->pl.keys.left_pressed = 1;
 	else if (k == KEY_RIGHT)
 		g->pl.keys.right_pressed = 1;
-	else if (k == KEY_W)
+	else if (k == KEY_W || k == KEY_UP)
 		g->pl.keys.w_pressed = 1;
 	else if (k == KEY_A)
 		g->pl.keys.a_pressed = 1;
-	else if (k == KEY_S)
+	else if (k == KEY_S || k == KEY_DOWN)
 		g->pl.keys.s_pressed = 1;
 	else if (k == KEY_D)
 		g->pl.keys.d_pressed = 1;
