@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 15:06:08 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/31 10:53:53 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/09/01 14:42:38 by lowathar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,15 @@ void	init_ray(t_file *g)
 		g->ray.angle = 270;
 	g->ray.hfov = 30;
 	g->ray.incre_angle = 2 * g->ray.hfov / WIN_W;
-	g->ray.precision = 50;
+	g->ray.precision = 100;
 	g->ray.lim = 11;
 	g->tex.n_bak = mlx_load_img(g->mlx_ptr, g->tex.n);
 	g->tex.s_bak = mlx_load_img(g->mlx_ptr, g->tex.s);
 	g->tex.w_bak = mlx_load_img(g->mlx_ptr, g->tex.w);
 	g->tex.e_bak = mlx_load_img(g->mlx_ptr, g->tex.e);
-	g->tex.door_c = mlx_load_img(g->mlx_ptr, "image/animation/port1_c.xpm");
+	
+	text_lst_init(g);
+	//g->tex.door_c = mlx_load_img(g->mlx_ptr, "image/animation/port1_c.xpm");
 }
 
 float	distance_to_wall(t_file *g, float ray_angle)
@@ -40,7 +42,7 @@ float	distance_to_wall(t_file *g, float ray_angle)
 	g->ray.sin = sin(degree_to_radians(ray_angle)) / g->ray.precision;
 	g->x = g->pl.x + 0.5;
 	g->y = g->pl.y + 0.5;
-	while (!ft_strchr("1c", g->map[(int)g->y][(int)g->x]))
+	while (!ft_strchr("1c ", g->map[(int)g->y][(int)g->x]))
 	{
 		g->x += g->ray.cos;
 		g->y += g->ray.sin;

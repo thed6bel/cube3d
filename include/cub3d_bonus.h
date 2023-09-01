@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 11:28:29 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/31 10:46:09 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/09/01 14:40:53 by lowathar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,8 @@ typedef struct s_tex
 	char	*e;
 	t_img	*e_bak;
 	t_img	*b;
-	t_img	*door_c;
+	t_list	*door_c;
+	t_list	*door_c_bak;
 	int		floor;
 	int		ceiling;
 }				t_tex;
@@ -159,6 +160,7 @@ int				get_tex_color(t_file *g, t_img *i, int z);
 void			draw_texture(t_file *g, t_img *i, int ray_count, \
 					int wall_height);
 void			cub_draw(t_file *g, int ray_count, float dis);
+void			text_lst_init(t_file *g);
 
 //minimap.c
 void			cub_minimap(t_file *g);

@@ -3,14 +3,44 @@
 /*                                                        :::      ::::::::   */
 /*   texture_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 11:29:57 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/30 15:16:07 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/09/01 14:39:14 by lowathar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../include/cub3d_bonus.h"
+
+t_list	*get_anim(t_img *img, t_list **anim)
+{
+	if (!img)
+		return (*anim);
+	// if (!img->i)
+	// {
+	// 	free(img);
+	// 	printf("shoooooooooooooo\n");
+	// 	return (*anim);
+	// }
+	printf("height : %d\n", img->height);
+	ft_lstadd_back(anim, ft_lstnew(img));
+	return (*anim);
+}
+
+void	text_lst_init(t_file *g)
+{
+	t_img *i;
+
+	g->tex.door_c_bak = get_anim(mlx_load_img(g->mlx_ptr, "./image/animation/port1_c.xpm"), &g->tex.door_c);
+	i = g->tex.door_c_bak->content;
+	printf("height : %d\n", i->height);
+	g->tex.door_c_bak = get_anim(mlx_load_img(g->mlx_ptr, "./image/animation/port2_c.xpm"), &g->tex.door_c);
+	g->tex.door_c_bak = get_anim(mlx_load_img(g->mlx_ptr, "./image/animation/port3_c.xpm"), &g->tex.door_c);
+	g->tex.door_c_bak = get_anim(mlx_load_img(g->mlx_ptr, "./image/animation/port4_c.xpm"), &g->tex.door_c);
+	g->tex.door_c_bak = get_anim(mlx_load_img(g->mlx_ptr, "./image/animation/port5_c.xpm"), &g->tex.door_c);
+	g->tex.door_c_bak = get_anim(mlx_load_img(g->mlx_ptr, "./image/animation/port6_c.xpm"), &g->tex.door_c);
+	g->tex.door_c_bak = get_anim(mlx_load_img(g->mlx_ptr, "./image/animation/port7_c.xpm"), &g->tex.door_c);
+}
 
 t_img	*get_texture(t_file *g)
 {
@@ -27,7 +57,7 @@ t_img	*get_texture(t_file *g)
 	i = g->tex.b;
 	if (g->map[(int)g->y][(int)g->x] == 'c')
 	{
-		i = g->tex.door_c;
+		i = g->tex.door_c->content;
 		return (i);
 	}
 	if (g->map[(int)(g->y - ray_sin)][(int)g->x] != '1')
