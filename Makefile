@@ -6,7 +6,7 @@
 #    By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/13 09:27:30 by hucorrei          #+#    #+#              #
-#    Updated: 2023/08/31 11:00:44 by hucorrei         ###   ########.fr        #
+#    Updated: 2023/09/01 15:03:28 by hucorrei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,7 @@ SRCS	= 		./src/mandatory/main.c \
 				./src/mandatory/3D/render.c \
 				./src/mandatory/3D/texture.c \
 				./src/mandatory/3D/utils.c \
-				./src/mandatory/3D/moves.c \
+				./src/mandatory/3D/mouses.c \
 				./src/mandatory/3D/end.c \
 
 SRCS_BONUS =	./src/Bonus/main.c \
@@ -72,7 +72,7 @@ SRCS_BONUS =	./src/Bonus/main.c \
 				./src/Bonus/3D/render_bonus.c \
 				./src/Bonus/3D/texture_bonus.c \
 				./src/Bonus/3D/utils_bonus.c \
-				./src/Bonus/3D/moves_bonus.c \
+				./src/Bonus/3D/mouses_bonus.c \
 				./src/Bonus/3D/end_bonus.c \
 
 OBJS	= $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))

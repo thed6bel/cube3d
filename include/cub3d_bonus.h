@@ -6,7 +6,7 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 11:28:29 by lowathar          #+#    #+#             */
-/*   Updated: 2023/09/01 14:56:25 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/09/01 15:03:14 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ typedef struct s_file
 	float		y;
 }				t_file;
 
-//moves.c
+//mouses.c
 int				cub_mouse_press(int button, int x, int y, t_file *g);
 int				cub_mouse_release(int button, int x, int y, t_file *g);
 int				cub_motion_hook(int x, int y, t_file *g);
