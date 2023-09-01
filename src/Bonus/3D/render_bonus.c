@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 15:11:08 by lowathar          #+#    #+#             */
-/*   Updated: 2023/09/01 14:38:27 by lowathar         ###   ########.fr       */
+/*   Updated: 2023/09/01 14:52:34 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	cub_update(void *param)
 	if (!(g->nframes % g->rate))
 	{
 		if (!(g->nframes % (5 * g->rate)))
-		{	
+		{
 			g->tex.door_c = g->tex.door_c->next;
 			if (!g->tex.door_c)
 				g->tex.door_c = g->tex.door_c_bak;
@@ -59,8 +59,6 @@ int	cub_update(void *param)
 		cub_minimap(g);
 		cub_raycast(g);
 		cub_miniview(g);
-		// redraw_elem(g, *g->scope, WIN_W / 2 - g->scope->width / 2, \
-		// 	WIN_H / 2 - g->scope->height / 2);
 		redraw_elem(g, g->miniview, WIN_W - g->miniview.width - 20, \
 			WIN_H - g->miniview.height - 20);
 		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->win_img.i, 0, 0);

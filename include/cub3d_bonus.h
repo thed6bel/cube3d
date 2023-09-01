@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 11:28:29 by lowathar          #+#    #+#             */
-/*   Updated: 2023/09/01 14:40:53 by lowathar         ###   ########.fr       */
+/*   Updated: 2023/09/01 14:56:25 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,7 +169,7 @@ void			cub_miniview(t_file *g);
 
 //utils.c
 float			degree_to_radians(float degree);
-void			go_black(t_file *g);
+t_list			*get_anim(t_img *img, t_list **anim);
 
 //end.c
 void			ft_free_matrix(char ***m);

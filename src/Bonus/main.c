@@ -6,7 +6,7 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 10:57:59 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/08/31 12:02:20 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/09/01 14:57:13 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	main(int argc, char **argv)
 	{
 		printf("Re-try with a good map!\n");
 		cub_end(&g);
-		//pas oublier de free!!!!!
 		system("leaks cub3D");
 	}
 	return (0);

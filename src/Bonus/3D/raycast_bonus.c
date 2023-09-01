@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 15:06:08 by lowathar          #+#    #+#             */
-/*   Updated: 2023/09/01 14:42:38 by lowathar         ###   ########.fr       */
+/*   Updated: 2023/09/01 14:51:36 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,7 @@ void	init_ray(t_file *g)
 	g->tex.s_bak = mlx_load_img(g->mlx_ptr, g->tex.s);
 	g->tex.w_bak = mlx_load_img(g->mlx_ptr, g->tex.w);
 	g->tex.e_bak = mlx_load_img(g->mlx_ptr, g->tex.e);
-	
 	text_lst_init(g);
-	//g->tex.door_c = mlx_load_img(g->mlx_ptr, "image/animation/port1_c.xpm");
 }
 
 float	distance_to_wall(t_file *g, float ray_angle)
