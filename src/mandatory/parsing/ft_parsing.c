@@ -6,7 +6,7 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 11:14:37 by thed6bel          #+#    #+#             */
-/*   Updated: 2023/08/30 14:11:18 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/09/04 14:30:54 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	ft_check_t(char **tile, char *line, char *cardinal)
 
 int	ft_file_load_tiles(t_file *file)
 {
-	char	*l;
 	char	*tmp;
 
 	while (!file->tex.e || !file->tex.n || !file->tex.s || !file->tex.w)

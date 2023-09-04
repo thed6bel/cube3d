@@ -6,7 +6,7 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 10:01:27 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/08/30 13:59:30 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/09/04 14:31:19 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ int	ft_validate_line(char **map, char *line, int l_nb, int total_lines)
 int	ft_valid_map(char **map, int *nb_lines)
 {
 	int		i;
-	int		j;
 	char	**tmp;
 
 	tmp = map;

@@ -6,7 +6,7 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 11:17:36 by thed6bel          #+#    #+#             */
-/*   Updated: 2023/08/30 14:47:33 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/09/04 11:07:23 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_file_c(char *file_path, char *type)
 	temp = type;
 	fd = open(file_path, O_RDONLY);
 	if (fd == -1)
-		return (printf("Exception: %s: '%s'\n", file_path, strerror(errno)));
+		return (printf("Error: %s: '%s'\n", file_path, strerror(errno)));
 	while (file_path[i] && (file_path[i] != '.' || file_path[i + 1] == '/'))
 		i++;
 	if ((!i || file_path[i - 1] == '/') && !close(fd))
