@@ -6,7 +6,7 @@
 #    By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/04 14:06:06 by hucorrei          #+#    #+#              #
-#    Updated: 2023/09/04 15:22:54 by hucorrei         ###   ########.fr        #
+#    Updated: 2023/09/05 10:18:48 by hucorrei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,13 +14,11 @@
 #                                     CONFIG                                   #
 ################################################################################
 
-NAME	= cub3D
-NAMEB	= cub3D_bonus
-CC		= gcc
-CFLAGS	= -Wall -Wextra -Werror
-OBJ_DIR	= .objs
-#MLX		= -lmlx -framework OpenGL -framework AppKit
-#MLX	= -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
+NAME		= cub3D
+NAME_BONUS	= cub3D_bonus
+CC			= gcc
+CFLAGS		= -Wall -Wextra -Werror
+OBJ_DIR		= .objs
 
 ################################################################################
 #                                  OS detection                                #
@@ -96,18 +94,20 @@ CYAN 		= \033[1;36m
 RM			= rm -rf
 
 ${NAME}:	${OBJS}
-		@echo "$(GREEN)Compilation ${CLR_RMV}of ${YELLOW}$(NAME) ${CLR_RMV}..."
-		@${MAKE} -C ./libft
-		@ $(MAKE) -C ${MLX_DIR} all >/dev/null 2>&1
-		@ cp ${MLX_DIR}/libmlx.a .
-		@${CC} ${CFLAGS} ${OBJS} ${MLX} ./libft/libft.a -o ${NAME}
-		@echo "$(GREEN)$(NAME) created[0m ✔️"
+			@echo "$(GREEN)Compilation ${CLR_RMV}of ${YELLOW}$(NAME) ${CLR_RMV}..."
+			@echo "$(GREEN)Compilation ${CLR_RMV}of ${YELLOW}LibFT ${CLR_RMV}..."
+			@${MAKE} -C ./libft >/dev/null 2>&1
+			@echo "$(GREEN)Compilation ${CLR_RMV}of ${YELLOW}MiniLibX ${CLR_RMV}..."
+			@ $(MAKE) -C ${MLX_DIR} all >/dev/null 2>&1
+			@ cp ${MLX_DIR}/libmlx.a .
+			@${CC} ${CFLAGS} ${OBJS} ${MLX} ./libft/libft.a -o ${NAME}
+			@echo "$(GREEN)$(NAME) created[0m ✔️"
 
-all:	${NAME}
+all:		${NAME}
 
 clean:
 			@${MAKE} -C ./libft clean
-			@${MAKE} -C ${MLX_DIR} clean
+			@${MAKE} -C ${MLX_DIR} clean >/dev/null 2>&1
 			@${RM} -r $(OBJ_DIR)
 			@${RM} ${OBJS}
 			@${RM} ${OBJS_BONUS}
@@ -115,25 +115,29 @@ clean:
 
 fclean:		clean
 			@ ${RM} ${NAME}
-			@ ${RM} ${NAMEB}
+			@ ${RM} ${NAME_BONUS}
 			@${RM} libmlx.a
 			@${RM} ./libft/libft.a
 			@ echo "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)binary ✔️"
 
 re:			fclean all
 
-bonus:		${OBJS_BONUS}
-		@echo "$(GREEN)Compilation ${CLR_RMV}of ${YELLOW}$(NAMEB) ${CLR_RMV}..."
-		@${MAKE} -C ./libft
-		@ $(MAKE) -C ${MLX_DIR} all >/dev/null 2>&1
-		@ cp ${MLX_DIR}/libmlx.a .
-		@${CC} ${CFLAGS} ${OBJS_BONUS} ${MLX} ./libft/libft.a -o ${NAMEB}
-		@echo "$(GREEN)$(NAMEB) created[0m ✔️"
+$(NAME_BONUS):		${OBJS_BONUS}
+			@echo "$(GREEN)Compilation ${CLR_RMV}of ${YELLOW}$(NAME_BONUS) ${CLR_RMV}..."
+			@echo "$(GREEN)Compilation ${CLR_RMV}of ${YELLOW}LibFT ${CLR_RMV}..."
+			@${MAKE} -C ./libft >/dev/null 2>&1
+			@echo "$(GREEN)Compilation ${CLR_RMV}of ${YELLOW}MiniLibX ${CLR_RMV}..."
+			@ $(MAKE) -C ${MLX_DIR} all >/dev/null 2>&1
+			@ cp ${MLX_DIR}/libmlx.a .
+			@${CC} ${CFLAGS} ${OBJS_BONUS} ${MLX} ./libft/libft.a -o ${NAME_BONUS}
+			@echo "$(GREEN)$(NAME_BONUS) created[0m ✔️"
+
+bonus:		${NAME_BONUS}
 
 git:
-		git add .
-		git commit -m "$m"
-		git push
-		@ echo "$(BLUE)ALL is on your $(CYAN)GIT $(CLR_RMV)✔️"
+			git add .
+			git commit -m "$m"
+			git push
+			@ echo "$(BLUE)ALL is on your $(CYAN)GIT $(CLR_RMV)✔️"
 
 .PHONY:	all clean fclean re bonus git

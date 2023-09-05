@@ -6,7 +6,7 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 10:01:27 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/09/04 14:32:29 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/09/05 10:14:09 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,8 @@ int	ft_validate_line(char **map, char *line, int l_nb, int total_lines)
 	while (line[j])
 	{
 		if (line[j] == '0' || line[j] == 'N' || line[j] == 'S'
-			|| line[j] == 'E' || line[j] == 'W' || line[j] == 'c')
+			|| line[j] == 'E' || line[j] == 'W' || line[j] == 'c' || \
+				line[j] == 'o')
 		{
 			if (ft_check_around(map, l_nb, j, total_lines))
 			{

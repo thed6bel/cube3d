@@ -6,7 +6,7 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 10:00:36 by thed6bel          #+#    #+#             */
-/*   Updated: 2023/08/30 15:16:46 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/09/05 10:11:44 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	is_player(char c, t_file *file)
 int	is_valid_map_obj(char c, t_file *file)
 {
 	if (c == '0' || c == ' ' || c == '1' || is_player(c, file) || c == '\t' \
-		|| c == 'c')
+		|| c == 'c' || c == 'o')
 		return (0);
 	return (1);
 }

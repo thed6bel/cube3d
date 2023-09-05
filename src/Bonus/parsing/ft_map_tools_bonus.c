@@ -6,7 +6,7 @@
 /*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 14:01:33 by hucorrei          #+#    #+#             */
-/*   Updated: 2023/08/31 11:23:31 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/09/05 10:14:59 by hucorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,11 +85,11 @@ int	ft_check_around(char **map, int x, int y, int max_x)
 		return (1);
 	if (map[x][y + 1] == '\n' || map[x][y + 1] == '\0')
 		return (1);
-	if (map[x][y] == 'c')
+	if (map[x][y] == 'c' || map[x][y] == 'o')
 	{
-		if (x > 0 && map[x - 1][y] == 'c')
+		if (x > 0 && (map[x - 1][y] == 'c' || map[x - 1][y] == 'o'))
 			return (1);
-		if (y > 0 && map[x][y - 1] == 'c')
+		if (y > 0 && (map[x][y - 1] == 'c' || map[x][y - 1] == 'o'))
 			return (1);
 	}
 	return (0);
