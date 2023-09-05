@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 15:06:08 by lowathar          #+#    #+#             */
-/*   Updated: 2023/08/30 14:48:39 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/09/05 13:34:02 by lowathar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	init_ray(t_file *g)
 		g->ray.angle = 270;
 	g->ray.hfov = 30;
 	g->ray.incre_angle = 2 * g->ray.hfov / WIN_W;
-	g->ray.precision = 50;
+	g->ray.precision = 100;
 	g->ray.lim = 11;
 	g->tex.n_bak = mlx_load_img(g->mlx_ptr, g->tex.n);
 	g->tex.s_bak = mlx_load_img(g->mlx_ptr, g->tex.s);

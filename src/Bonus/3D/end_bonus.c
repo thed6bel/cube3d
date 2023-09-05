@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   end_bonus.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hucorrei <hucorrei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lowathar <lowathar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 14:22:04 by lowathar          #+#    #+#             */
-/*   Updated: 2023/09/01 14:51:19 by hucorrei         ###   ########.fr       */
+/*   Updated: 2023/09/05 13:35:05 by lowathar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,5 @@ int	cub_end(t_file *g)
 	if (g->fd > 0)
 		close(g->fd);
 	destroy_images(g);
-	system("leaks cub3D");
 	exit(0);
 }
